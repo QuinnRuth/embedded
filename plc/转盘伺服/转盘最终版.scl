@@ -1,0 +1,219 @@
+﻿FUNCTION_BLOCK "块_1"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_INPUT 
+      系统上电 : Bool;
+      料块芯检测 : Bool;
+      料芯井检测 : Bool;
+      料块固定 : Bool;
+      压料柱回位 : Bool;
+      压料柱到位 : Bool;
+      启动按钮 : Bool;
+      停止按钮 : Bool;
+      料块已放 : Bool;
+      料块检测 : Bool;
+   END_VAR
+
+   VAR_OUTPUT 
+      工件固定气缸 : Bool;
+      料块推出气缸 : Bool;
+      压料柱气缸 : Bool;
+      转盘使能 : Bool;
+      转盘正转 : Bool;
+      转盘反转 : Bool;
+   END_VAR
+
+   VAR_IN_OUT 
+      转盘实际位置 : LReal;
+      设定绝对位置 : LReal;
+      启动绝对位置 : Bool;
+      启动回原点 : Bool;
+   END_VAR
+
+   VAR 
+      Static_1 {InstructionName := 'IEC_TIMER'; LibVersion := '1.0'} : IEC_TIMER;
+      "1" { S7_SetPoint := 'True'} : Bool;
+      Static_2 {InstructionName := 'IEC_TIMER'; LibVersion := '1.0'} : IEC_TIMER;
+      "2" { S7_SetPoint := 'True'} : Bool;
+      Static_3 {InstructionName := 'IEC_TIMER'; LibVersion := '1.0'} : IEC_TIMER;
+      "3" { S7_SetPoint := 'True'} : Bool;
+      Static_4 {InstructionName := 'IEC_TIMER'; LibVersion := '1.0'} : IEC_TIMER;
+      Static_5 {InstructionName := 'IEC_TIMER'; LibVersion := '1.0'} : IEC_TIMER;
+      "4" { S7_SetPoint := 'True'} : Bool;
+      "5" : Bool;
+      "6" : Bool;
+      "7" : Bool;
+      Static_6 {InstructionName := 'IEC_TIMER'; LibVersion := '1.0'} : IEC_TIMER;
+      "8" { S7_SetPoint := 'True'} : Bool;
+      料块推出气缸_1 : Bool;
+      Static_7 {InstructionName := 'IEC_TIMER'; LibVersion := '1.0'} : IEC_TIMER;
+      Static_8 {InstructionName := 'IEC_TIMER'; LibVersion := '1.0'} : IEC_TIMER;
+      Static_9 {InstructionName := 'IEC_TIMER'; LibVersion := '1.0'} : IEC_TIMER;
+   END_VAR
+
+
+BEGIN
+	IF #系统上电 THEN
+	    #转盘使能 := 1;
+	    #"1" := 1;
+	END_IF;
+	
+	IF #"1" THEN
+	    #Static_1.TON(IN := TRUE,
+	                  PT := t#0.5s);
+	    IF #Static_1.Q THEN
+	        #转盘正转 := 1;
+	        #Static_2.TON(IN := TRUE,
+	                      PT := t#5s);
+	        IF #Static_2.Q THEN
+	            #"2" := 1;
+	            #"1" := 0;
+	        END_IF;
+	    END_IF;
+	END_IF;
+	
+	IF #"2" THEN
+	    #Static_1.TON(IN := FALSE,
+	                  PT := t#0.5s);
+	    #Static_2.TON(IN := FALSE,
+	                  PT := t#5s);
+	    #转盘正转 := 0;
+	    #启动回原点 := 1;
+	    #"2" := 0;
+	END_IF;
+	
+	IF #启动回原点 THEN
+	    #Static_3.TON(IN := TRUE,
+	                  PT := t#0.5s);
+	    IF #Static_3.Q THEN
+	        #Static_3.TON(IN := FALSE,
+	                      PT := t#0.5s);
+	        #启动回原点 := 0;
+	    END_IF;
+	END_IF;
+	
+	IF #启动绝对位置 THEN
+	    #Static_5.TON(IN := TRUE,
+	                  PT := t#0.5s);
+	    IF #Static_5.Q THEN
+	        #Static_5.TON(IN := FALSE,
+	                      PT := t#0.5s);
+	        #启动绝对位置 := 0;
+	    END_IF;
+	END_IF;
+	
+	IF #料块推出气缸_1 THEN
+	    #Static_6.TON(IN := TRUE,
+	                  PT := t#1.5s);
+	    IF #Static_6.Q THEN
+	        #Static_6.TON(IN := FALSE,
+	                      PT := t#1.5s);
+	        #料块推出气缸_1 := 0;
+	    END_IF;
+	END_IF;
+	
+	IF #料块推出气缸_1 THEN
+	    #料块推出气缸 := 1;
+	ELSE
+	    #料块推出气缸 := 0;
+	END_IF;
+	
+	
+	IF #压料柱到位 THEN
+	    #Static_7.TON(IN := TRUE,
+	                  PT := t#0.5s);
+	    IF #Static_7.Q THEN
+	        #压料柱气缸 := 0;
+	    END_IF;
+	END_IF;
+	
+	
+	
+	
+	
+	
+	IF #启动按钮 THEN
+	    #"3" := 1;
+	END_IF;
+	
+	IF #"3" AND #料块已放 THEN
+	    #设定绝对位置 := 32000;
+	    #启动绝对位置 := 1;
+	END_IF;
+	
+	IF #转盘实际位置 = 32000 AND #"3" AND #"4" = 0 AND #料块检测 THEN
+	    #Static_4.TON(IN := TRUE,
+	                  PT := t#2s);
+	    IF #Static_4.Q AND #料块芯检测 = 0 THEN
+	        #设定绝对位置 := 65000;
+	        #启动绝对位置 := 1;
+	        #"4" := 1;
+	    ELSIF #Static_4.Q AND #料块芯检测 THEN
+	        #设定绝对位置 := 140000;  //不知道是否能到达
+	        #启动绝对位置 := 1;
+	        #"5" := 1;
+	    END_IF;
+	END_IF;
+	
+	IF #"4" THEN
+	    #Static_4.TON(IN := FALSE,
+	                  PT := t#2s);
+	    #"3" := 0;
+	    IF #转盘实际位置 = 65000 AND #料芯井检测 THEN
+	        #工件固定气缸 := 1;
+	        #"4" := 0;
+	        #"6" := 1;
+	    END_IF;
+	END_IF;
+	
+	IF #"6" THEN
+	    IF #料块固定=0 THEN
+	        
+	        #Static_8.TON(IN := TRUE,
+	                      PT := t#1.5s);
+	        IF #Static_8.Q THEN
+	            #工件固定气缸 := 0;
+	            #Static_9.TON(IN := TRUE,
+	                          PT := t#1.5s);
+	        END_IF;
+	        
+	    ELSIF #料块固定=1 AND #Static_9.Q THEN
+	        #Static_8.TON(IN := FALSE,
+	                      PT := t#0.5s);
+	        #Static_9.TON(IN := FALSE,
+	                      PT := t#1.5s);
+	        #料块推出气缸_1 := 1;
+	        #"6" := 0;
+	        #"7" := 1;
+	    END_IF;
+	END_IF;
+	
+	IF #"7" THEN
+	    IF #料块推出气缸_1 = 0 THEN
+	        #压料柱气缸 := 1;
+	        #"7" := 0;
+	        #"8" := 1;
+	    END_IF;
+	END_IF;
+	
+	IF #"8" AND #压料柱回位 THEN
+	    #设定绝对位置 := 140000;  //不知道是否能到达
+	    #启动绝对位置 := 1;
+	    #"5" := 1;
+	END_IF;
+	
+	
+	
+	IF #"5" THEN
+	    #Static_4.TON(IN := FALSE,
+	                  PT := t#2s);
+	    #"3" := 0;
+	    IF #转盘实际位置 = 140000 THEN
+	        #启动回原点 := 1;
+	        #"5" := 0;
+	        #"8" := 0;
+	    END_IF;
+	END_IF;
+	
+	
+END_FUNCTION_BLOCK

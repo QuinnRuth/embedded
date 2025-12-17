@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:gist.github.com)",
+      "WebFetch(domain:www.geeksforgeeks.org)",
+      "WebFetch(domain:pythonforfun.in)",
+      "WebFetch(domain:pythondex.com)",
+      "Bash(ls:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

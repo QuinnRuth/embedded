@@ -1,0 +1,12 @@
+#!/bin/bash
+if command -v arm-none-eabi-gcc >/dev/null 2>&1; then
+  :
+else
+  export PATH=/usr/local/arm-gcc/bin:$PATH
+fi
+echo "✅ Embedded ARM environment loaded"
+if command -v arm-none-eabi-gcc >/dev/null 2>&1; then
+  echo "   $(arm-none-eabi-gcc --version | head -1)"
+else
+  echo "   arm-none-eabi-gcc not found in PATH"
+fi

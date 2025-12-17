@@ -1,0 +1,64 @@
+﻿﻿// ============================================================================
+// DB200_Traj - Python 轨迹通讯数据块
+// 文件名: DB200_Traj.scl
+// 版本: 1.0
+// 兼容: SIMATIC S7-1500, TIA Portal V17/V18
+// 编码: UTF-8
+// ============================================================================
+// 功能说明:
+//   - 用于 Python (python-snap7) 与 PLC 之间的轨迹点通讯
+//   - Python 写入 X/Y 目标位置，PLC 读取并执行运动
+//   - 单点握手协议：NewPoint / Busy / Done
+// ============================================================================
+// 字节布局（供 Python snap7 参考）:
+//   Offset 0.0:  X_Setpoint (Real, 4 bytes)
+//   Offset 4.0:  Y_Setpoint (Real, 4 bytes)
+//   Offset 8.0:  Velocity   (Real, 4 bytes)
+//   Offset 12.0: PointIndex (Int, 2 bytes)
+//   Offset 14.0: NewPoint   (Bool, bit 0)
+//   Offset 14.1: Busy       (Bool, bit 1)
+//   Offset 14.2: Done       (Bool, bit 2)
+//   Offset 14.3: Error      (Bool, bit 3)
+//   Offset 14.4: Enable     (Bool, bit 4) - Python模式使能
+// ============================================================================
+
+DATA_BLOCK "DB200_Traj"
+{ S7_Optimized_Access := 'FALSE' }
+VERSION : 1.0
+
+STRUCT
+    // ===== 目标位置（由 Python 写入）=====
+    X_Setpoint : Real := 0.0;       // Offset 0: X 轴目标位置 (mm)
+    Y_Setpoint : Real := 0.0;       // Offset 4: Y 轴目标位置 (mm)
+    Velocity : Real := 50.0;        // Offset 8: 运动速度 (mm/s)
+    PointIndex : Int := 0;          // Offset 12: 当前点索引（监控用）
+    
+    // ===== 握手信号 =====
+    NewPoint : Bool := FALSE;       // Offset 14.0: Python 写完新点 → 置位
+    Busy : Bool := FALSE;           // Offset 14.1: PLC 正在执行 → 置位
+    Done : Bool := FALSE;           // Offset 14.2: 该点执行完成 → 置位
+    Error : Bool := FALSE;          // Offset 14.3: 执行出错 → 置位
+    Enable : Bool := FALSE;         // Offset 14.4: Python 模式使能（TRUE=跟随Python）
+    
+    // ===== 预留 =====
+    Spare1 : Bool := FALSE;         // Offset 14.5
+    Spare2 : Bool := FALSE;         // Offset 14.6
+    Spare3 : Bool := FALSE;         // Offset 14.7
+    
+END_STRUCT;
+
+BEGIN
+    // 初始值
+    X_Setpoint := 0.0;
+    Y_Setpoint := 0.0;
+    Velocity := 50.0;
+    PointIndex := 0;
+    NewPoint := FALSE;
+    Busy := FALSE;
+    Done := FALSE;
+    Error := FALSE;
+    Enable := FALSE;
+
+END_DATA_BLOCK
+
+

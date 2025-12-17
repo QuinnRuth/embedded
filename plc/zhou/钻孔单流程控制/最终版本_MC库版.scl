@@ -1,0 +1,280 @@
+﻿FUNCTION_BLOCK "钻孔控制_MC版"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_INPUT
+      系统上电 : Bool;           // 系统上电信号，触发回原点流程
+      启动按钮 : Bool;           // 启动按钮，开始工作循环
+      停止按钮 : Bool;           // 停止按钮，暂停工作循环
+      x轴左限位 : Bool;          // X轴左限位开关（原点位置）
+      x轴右限位 : Bool;          // X轴右限位开关
+      y轴后限位 : Bool;          // Y轴后限位开关
+      y轴前限位 : Bool;          // Y轴前限位开关（原点位置）
+      气缸元点检测 : Bool;       // 气缸原点检测开关（钻头上升位置）
+   END_VAR
+
+   VAR_OUTPUT
+      工作台加紧 : Bool;         // 工作台夹紧气缸输出
+      钻下降 : Bool;             // 钻头下降气缸输出
+      钻运行 : Bool;             // 钻头旋转电机输出
+   END_VAR
+
+   VAR CONSTANT
+      c回原点保护时间 : TIME := t#0.5s;
+      c放料时间 : TIME := t#5.0s;
+      cX轴移动时间 : TIME := t#5.0s;
+      cY轴移动时间 : TIME := t#2.0s;
+      c钻下降时间 : TIME := t#1.0s;
+      c钻运行时间 : TIME := t#3.0s;
+
+      c状态_上电回零 : INT := 10;
+      c状态_等待启动 : INT := 20;
+      c状态_放料     : INT := 30;
+      c状态_XY移动   : INT := 40;
+      c状态_钻下降   : INT := 50;
+      c状态_钻运行   : INT := 60;
+      c状态_循环复位 : INT := 70;
+   END_VAR
+
+   VAR
+      // ========== 定时器实例 ==========
+      t回原点延时 {InstructionName := 'IEC_TIMER'; LibVersion := '1.0'} : IEC_TIMER;
+      t放料延时 {InstructionName := 'IEC_TIMER'; LibVersion := '1.0'} : IEC_TIMER;
+      tX轴移动延时 {InstructionName := 'IEC_TIMER'; LibVersion := '1.0'} : IEC_TIMER;
+      tY轴移动延时 {InstructionName := 'IEC_TIMER'; LibVersion := '1.0'} : IEC_TIMER;
+      t钻下延时 {InstructionName := 'IEC_TIMER'; LibVersion := '1.0'} : IEC_TIMER;
+      t钻运行延时 {InstructionName := 'IEC_TIMER'; LibVersion := '1.0'} : IEC_TIMER;
+
+      // ========== 状态标志 ==========
+      b回原点状态 { S7_SetPoint := 'True'} : Bool;        // 回原点流程激活标志
+      b工作运行标志 { S7_SetPoint := 'True'} : Bool;      // 工作循环运行标志
+      b循环触发标志 { S7_SetPoint := 'True'} : Bool;      // 循环下降沿触发标志
+      b停止锁定标志 { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;  // 停止按钮锁定标志
+      b原点到位标志 : Bool;                                // 回原点完成标志（内部）
+      状态 : INT := 10;                                    // 主状态机变量
+
+      // ========== MC库中间变量 ==========
+      bX轴使能 : Bool;            // X轴使能请求
+      bY轴使能 : Bool;            // Y轴使能请求
+      bX轴左运动 : Bool;          // X轴向左运动（JogBackward）
+      bX轴右运动 : Bool;          // X轴向右运动（JogForward）
+      bY轴前运动 : Bool;          // Y轴向前运动（JogBackward）
+      bY轴后运动 : Bool;          // Y轴向后运动（JogForward）
+
+      // ========== 下降沿检测器 ==========
+      f下降沿检测器 {InstructionName := 'F_TRIG'; LibVersion := '1.0'} : F_TRIG;  // 检测工作运行标志的下降沿
+   END_VAR
+
+   VAR_TEMP
+      b内部启动触发 : Bool;      // 启动触发脉冲（内循环）
+      b允许启动解锁 : Bool;      // 四条件安全互锁结果
+      b允许进入循环 : Bool;      // 下降沿触发且未锁定
+      b启动请求 : Bool;          // 启动按钮或内部触发
+   END_VAR
+
+
+BEGIN
+	// ========================================
+	// 统一默认/派生赋值
+	// ========================================
+	#b循环触发标志 := 0;                         // 默认清零，状态跳转时单拍置位
+	#b内部启动触发 := 0;                         // 状态机版不再使用该脉冲
+
+	// 系统上电时强制回零状态，保持使能
+	IF #系统上电 THEN
+	    #状态 := c状态_上电回零;
+	    #bX轴使能 := 1;
+	    #bY轴使能 := 1;
+	END_IF;
+
+	// 停止/互锁
+	IF #停止按钮 OR #b停止锁定标志 THEN
+	    #b停止锁定标志 := 1;
+	END_IF;
+
+	IF #启动按钮 AND #气缸元点检测 AND #x轴左限位 AND #y轴前限位 THEN
+	    #b停止锁定标志 := 0;                     // 满足安全互锁解除停止
+	END_IF;
+
+	// ========================================
+	// 主状态机
+	// ========================================
+	CASE #状态 OF
+	    c状态_上电回零:
+	        #钻下降 := 0;
+	        #工作台加紧 := 0;
+	        #钻运行 := 0;
+	        #bX轴左运动 := 1;
+	        #bY轴前运动 := 1;
+
+	        #t回原点延时.TON(IN := TRUE, PT := c回原点保护时间);
+
+	        IF #t回原点延时.Q THEN
+	            #t回原点延时.IN := FALSE;
+	            #状态 := c状态_等待启动;
+	        END_IF;
+
+	    c状态_等待启动:
+	        #t回原点延时.TON(IN := FALSE, PT := c回原点保护时间);
+
+	        // 保持回零方向直到限位到位
+	        #bX轴左运动 := 1;
+	        #bY轴前运动 := 1;
+
+	        IF #x轴左限位 THEN #bX轴左运动 := 0; END_IF;
+	        IF #y轴前限位 THEN #bY轴前运动 := 0; END_IF;
+
+	        IF (#启动按钮 AND #气缸元点检测 AND #x轴左限位 AND #y轴前限位 AND (#b停止锁定标志 = 0)) THEN
+	            #t放料延时.TON(IN := FALSE, PT := c放料时间);   // 进入放料前重置计时
+	            #状态 := c状态_放料;
+	        END_IF;
+
+	    c状态_放料:
+	        #bX轴左运动 := 0;
+	        #bY轴前运动 := 0;
+
+	        #t放料延时.TON(IN := TRUE, PT := c放料时间);
+
+	        IF #t放料延时.Q THEN
+	            #工作台加紧 := 1;
+	            #bX轴右运动 := 1;
+	            #bY轴后运动 := 1;
+
+	            #tX轴移动延时.TON(IN := TRUE, PT := cX轴移动时间);
+	            #tY轴移动延时.TON(IN := TRUE, PT := cY轴移动时间);
+
+	            #状态 := c状态_XY移动;
+	        END_IF;
+
+	    c状态_XY移动:
+	        #工作台加紧 := 1;
+
+	        #tX轴移动延时.TON(IN := TRUE, PT := cX轴移动时间);
+	        #tY轴移动延时.TON(IN := TRUE, PT := cY轴移动时间);
+
+	        #bX轴右运动 := NOT #tX轴移动延时.Q;
+	        #bY轴后运动 := NOT #tY轴移动延时.Q;
+
+	        IF #tX轴移动延时.Q THEN
+	            #钻下降 := 1;
+	            #t钻下延时.TON(IN := TRUE, PT := c钻下降时间);
+	            #状态 := c状态_钻下降;
+	        END_IF;
+
+	    c状态_钻下降:
+	        #工作台加紧 := 1;
+	        #钻下降 := 1;
+
+	        #tY轴移动延时.TON(IN := TRUE, PT := cY轴移动时间);
+	        #bY轴后运动 := NOT #tY轴移动延时.Q;
+
+	        #t钻下延时.TON(IN := TRUE, PT := c钻下降时间);
+
+	        IF #t钻下延时.Q THEN
+	            #钻运行 := 1;
+	            #t钻运行延时.TON(IN := TRUE, PT := c钻运行时间);
+	            #状态 := c状态_钻运行;
+	        END_IF;
+
+	    c状态_钻运行:
+	        #工作台加紧 := 1;
+	        #钻下降 := 1;
+	        #钻运行 := 1;
+
+	        #tY轴移动延时.TON(IN := TRUE, PT := cY轴移动时间);
+	        #bY轴后运动 := NOT #tY轴移动延时.Q;
+
+	        #t钻运行延时.TON(IN := TRUE, PT := c钻运行时间);
+
+	        IF #t钻运行延时.Q THEN
+	            #状态 := c状态_循环复位;
+	        END_IF;
+
+	    c状态_循环复位:
+	        // 复位定时器
+	        #t放料延时.TON(IN := FALSE, PT := c放料时间);
+	        #tX轴移动延时.TON(IN := FALSE, PT := cX轴移动时间);
+	        #tY轴移动延时.TON(IN := FALSE, PT := cY轴移动时间);
+	        #t钻下延时.TON(IN := FALSE, PT := c钻下降时间);
+	        #t钻运行延时.TON(IN := FALSE, PT := c钻运行时间);
+
+	        // 复位输出
+	        #bX轴右运动 := 0;
+	        #bY轴后运动 := 0;
+	        #钻运行 := 0;
+	        #钻下降 := 0;
+	        #工作台加紧 := 0;
+
+	        #b循环触发标志 := 1;                 // 兼容原有下降沿意义
+	        #状态 := c状态_上电回零;
+
+	    ELSE
+	        #状态 := c状态_上电回零;
+	END_CASE;
+
+	// 限位保护优先
+	IF #x轴左限位 THEN
+	    #bX轴左运动 := 0;
+	END_IF;
+
+	IF #y轴前限位 THEN
+	    #bY轴前运动 := 0;
+	END_IF;
+
+	// ========================================
+	// MC库调用
+	// ========================================
+	// X轴使能
+	"MC_POWER_DB"(
+	    Axis := "X轴",
+	    Enable := #bX轴使能,
+	    StartMode := 0,
+	    StopMode := 0
+	);
+	
+	// Y轴使能
+	"MC_POWER_DB_1"(
+	    Axis := "Y轴",
+	    Enable := #bY轴使能,
+	    StartMode := 0,
+	    StopMode := 0
+	);
+	
+	// X轴复位
+	"MC_RESET_DB"(
+	    Axis := "X轴",
+	    Execute := #系统上电
+	);
+	
+	// Y轴复位
+	"MC_RESET_DB_1"(
+	    Axis := "Y轴",
+	    Execute := #系统上电
+	);
+	
+	// X轴点动 (JogForward=右, JogBackward=左)
+	"MC_MOVEJOG_DB"(
+	    Axis := "X轴",
+	    JogForward := #bX轴右运动,
+	    JogBackward := #bX轴左运动,
+	    Velocity := 100.0,
+	    Acceleration := 500.0,
+	    Deceleration := 500.0
+	);
+	
+	// Y轴点动 (JogForward=后, JogBackward=前)
+	"MC_MOVEJOG_DB_1"(
+	    Axis := "Y轴",
+	    JogForward := #bY轴后运动,
+	    JogBackward := #bY轴前运动,
+	    Velocity := 100.0,
+	    Acceleration := 500.0,
+	    Deceleration := 500.0
+	);
+
+	// 派生布尔标志（兼容原接口）
+	#b回原点状态 := (#状态 = c状态_上电回零);
+	#b原点到位标志 := (#状态 = c状态_等待启动);
+	#b工作运行标志 := (#状态 >= c状态_放料) AND (#状态 <= c状态_钻运行);
+END_FUNCTION_BLOCK
+
+

@@ -1,0 +1,130 @@
+<mxfile host="65bd71144e">
+    <diagram id="topology" name="拓扑：WSL/宿主机/VM/真实PLC">
+        <mxGraphModel dx="954" dy="580" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="host" value="Windows 宿主机（你的电脑）&#10;主网/WLAN：192.168.0.2&#10;WSL 虚拟网：172.26.96.1 ↔ 172.26.99.101&#10;&#10;关键作用：&#10;1) 承载 VMware/虚拟网卡&#10;2) 负责 WSL2 的 NAT/转发/出网&#10;3) 可能承担端口转发（VM → WSL）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#00b0f0;strokeColor=#0070c0;fontSize=12;fontColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="70" width="360" height="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="wsl" value="WSL2（Ubuntu）&#10;IP：172.26.99.101&#10;&#10;运行：Python + snap7&#10;作用：通过 TCP/102 读写真实 PLC 的 DB200&#10;&#10;注意：&#10;WSL 的 172.26.* 属于宿主机内部虚拟网段，外部机器/VM 通常路由不到" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7030a0;strokeColor=#4b2170;fontSize=12;fontColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="310" width="320" height="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="vm" value="VM（Windows/RobotStudio/TIA 等）&#10;桥接网卡：192.168.0.156（同主网）&#10;NAT 网卡：192.168.233.129（默认上网）&#10;默认路由：0.0.0.0/0 → 192.168.233.2&#10;&#10;TIA/博途在线监控看到的 DB200 变化&#10;= 真实 PLC 的 DB200 变化（不是 Python 在控制博途）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#00b050;strokeColor=#007a3d;fontSize=12;fontColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="520" y="70" width="420" height="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="plc" value="真实 PLC（工业设备）&#10;提供 S7 服务：TCP/102&#10;内部内存/数据块：DB200（Trajectory/Handshake）&#10;&#10;谁能连上 PLC（IP 可达 + PUT/GET 允许）&#10;谁就能读写 DB200，从而影响设备动作" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ff0000;strokeColor=#c00000;fontSize=12;fontColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="520" y="330" width="420" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="router" value="路由器/交换机（主网）&#10;网关：192.168.0.1&#10;网段：192.168.0.0/24" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffc000;strokeColor=#b38600;fontSize=12;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="940" y="300" width="180" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_host_wsl" value="WSL 虚拟交换&#10;172.26.*" style="endArrow=block;html=1;strokeColor=#000000;fontSize=11;" parent="1" source="host" target="wsl" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_vm_host" value="桥接同网段直连&#10;192.168.0.*" style="endArrow=block;html=1;strokeColor=#000000;fontSize=11;" parent="1" source="vm" target="host" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_vm_router" value="桥接侧也在主网&#10;（可用于访问 PLC/宿主机）" style="endArrow=block;html=1;strokeColor=#000000;fontSize=11;dashed=1;" parent="1" source="vm" target="router" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_plc_router" value="PLC 在主网/工厂网段&#10;（网线/交换机）" style="endArrow=block;html=1;strokeColor=#000000;fontSize=11;" parent="1" source="plc" target="router" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_wsl_plc" value="Python(snap7) → PLC&#10;TCP/102 + S7 协议&#10;读写 DB200" style="endArrow=block;html=1;strokeColor=#000000;fontSize=11;" parent="1" source="wsl" target="plc" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="note" value="你遇到的关键现象怎么解释：&#10;1) 网线断开 → Python 不能控制：因为 TCP/102 到真实 PLC 断了&#10;2) “Python 控制博途 DB” 的错觉：&#10;   Python 写的是 PLC 的 DB200；博途在线显示的也是 PLC 的 DB200&#10;   所以你在博途里看到 DB 变了，其实是 PLC 内存变了" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ff66cc;strokeColor=#c0007a;fontSize=12;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="170" y="540" width="1080" height="140" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="detailed" name="详细链路：网线/WSL/VM/TIA/PLC">
+        <mxGraphModel dx="954" dy="580" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="pc" value="Windows 宿主机（你的电脑）&#10;&#10;包含：&#10;- 真实网卡/Wi‑Fi（192.168.0.2）&#10;- WSL2 虚拟网卡（172.26.*）&#10;- VMware 虚拟网络（桥接/NAT）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#00b0f0;strokeColor=#0070c0;fontSize=12;fontColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="60" width="320" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="wsl3" value="WSL2（Ubuntu）&#10;&#10;运行：Python + snap7&#10;作用：写/读 PLC 的 DB200&#10;协议：S7 over TCP（常见 TCP/102）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7030a0;strokeColor=#4b2170;fontSize=12;fontColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="70" y="260" width="290" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="vm3" value="VM（Windows）&#10;&#10;运行：TIA Portal（博途）/上位机工具&#10;桥接：192.168.0.156（能直连主网设备）&#10;NAT：192.168.233.129（默认上网）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#00b050;strokeColor=#007a3d;fontSize=12;fontColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="420" y="60" width="330" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="tia" value="TIA Portal（博途）在线模式&#10;&#10;作用：&#10;- 在线监控 PLC 的 DB200/变量表&#10;-（可选）手动写 DB200 做调试&#10;&#10;注意：博途不是“被 Python 控制”&#10;它只是另一个客户端在读同一份 PLC 内存" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffc000;strokeColor=#b38600;fontSize=12;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="430" y="240" width="330" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="switch" value="交换机/直连网线所在链路&#10;（物理二层网络）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9dc3e6;strokeColor=#2f5597;fontSize=12;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="800" y="150" width="320" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="cable" value="关键网线（物理层）&#10;作用：提供 Link/二层通路&#10;断开 = 无法 ARP = 无法 TCP/102 = snap7 断连" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bfbfbf;strokeColor=#404040;fontSize=12;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="800" y="260" width="320" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="plc3" value="真实 PLC（工业设备）&#10;&#10;对外：S7 服务（TCP/102）&#10;内部：DB200 + 控制程序（SCL/FB）+ 工艺对象(TO)/MC&#10;&#10;动作链路：&#10;DB200 → 控制SCL/FB → TO/MC → 驱动/IO → 设备运动" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ff0000;strokeColor=#c00000;fontSize=12;fontColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="800" y="380" width="320" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_pc_wsl" value="宿主机内部虚拟网&#10;172.26.*" style="endArrow=block;html=1;strokeColor=#000000;fontSize=11;" parent="1" source="pc" target="wsl3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_pc_vm" value="VMware 虚拟网络&#10;（桥接/NAT）" style="endArrow=block;html=1;strokeColor=#000000;fontSize=11;" parent="1" source="pc" target="vm3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_vm_tia" value="VM 内运行" style="endArrow=block;html=1;strokeColor=#000000;fontSize=11;" parent="1" source="vm3" target="tia" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_vm_switch" value="桥接同网段可达&#10;（PLC 在这条物理链路上）" style="endArrow=block;html=1;strokeColor=#000000;fontSize=11;" parent="1" source="vm3" target="switch" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_switch_cable" value="物理链路" style="endArrow=block;html=1;strokeColor=#000000;fontSize=11;" parent="1" source="switch" target="cable" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_cable_plc" value="网线连到 PLC 网口" style="endArrow=block;html=1;strokeColor=#000000;fontSize=11;" parent="1" source="cable" target="plc3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_wsl_plc3" value="Python(snap7) ↔ PLC&#10;TCP/102 + S7&#10;读写 DB200（控制点/握手位）" style="endArrow=block;html=1;strokeColor=#000000;fontSize=11;" parent="1" source="wsl3" target="plc3" edge="1">
+                    <mxGeometry x="0.1632" y="-30" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_tia_plc3" value="博途在线 ↔ PLC&#10;读/写变量（调试/监控）" style="endArrow=block;html=1;strokeColor=#000000;fontSize=11;dashed=1;" parent="1" source="tia" target="plc3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="note3" value="核心结论：&#10;1) Python 并不会“直接下运动指令”给驱动/IO；它只是在写 PLC 的数据（DB200）&#10;2) 真正把数据变成运动的是 PLC 程序：控制SCL/FB + 工艺对象(TO)/MC + 驱动/IO&#10;3) 网线断开会导致 snap7 失效，因为物理链路断了：无 Link/ARP/TCP/102" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ff66cc;strokeColor=#c0007a;fontSize=12;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="580" width="710" height="150" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="handshake" name="DB200：握手与偏移（最小模型）">
+        <mxGraphModel dx="954" dy="580" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="db" value="DB200（PLC 内数据块，非优化访问）&#10;&#10;偏移：&#10;DBD0  X_Setpoint (Real)&#10;DBD4  Y_Setpoint (Real)&#10;DBD8  Velocity   (Real)&#10;DBW12 PointIndex (Int)&#10;DBX14.0 NewPoint&#10;DBX14.1 Busy&#10;DBX14.2 Done&#10;DBX14.3 Error&#10;DBX14.4 Enable" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7030a0;strokeColor=#4b2170;fontSize=12;fontColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="70" width="360" height="310" as="geometry"/>
+                </mxCell>
+                <mxCell id="py" value="Python（snap7）&#10;节奏：wait_idle → write_point → wait_done&#10;&#10;要点：&#10;- 发新点前确认空闲（Busy=0 Done=1 NewPoint=0 Enable=1）&#10;- 写新点前先清 Done=0（防残留误判）&#10;- NewPoint 置 1 触发 PLC 取点" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#00b0f0;strokeColor=#0070c0;fontSize=12;fontColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="70" width="300" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="fb" value="PLC 程序（FB_PythonFollow + MC）&#10;OB1 周期执行：&#10;1) 看到 NewPoint=1 → 锁存 X/Y/V/Index&#10;2) Busy=1，驱动 MC_MoveAbsolute&#10;3) 完成后 Done=1、Busy=0，并消费 NewPoint" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ff0000;strokeColor=#c00000;fontSize=12;fontColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="270" width="600" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="e1" value="写：X/Y/V/Index + Enable=1 + Done=0 + NewPoint=1" style="endArrow=block;html=1;strokeColor=#000000;fontSize=11;" parent="1" source="py" target="db" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e2" value="读：Busy/Done/Error/NewPoint（轮询）" style="endArrow=block;html=1;strokeColor=#000000;fontSize=11;" parent="1" source="py" target="db" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e3" value="读 DB200（取点）&amp; 写 Busy/Done/Error（回执）" style="endArrow=block;html=1;strokeColor=#000000;fontSize=11;" parent="1" source="fb" target="db" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="note2" value="这张图想表达：&#10;DB200 是“共享邮箱”。Python/TIA/其它上位机都只是客户端。&#10;真正执行动作的是 PLC 程序（FB/OB1/MC）。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffc000;strokeColor=#b38600;fontSize=12;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="420" width="1040" height="100" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

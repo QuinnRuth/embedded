@@ -1,0 +1,267 @@
+﻿FUNCTION_BLOCK "转盘状态机重写版"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 1.0
+   VAR_INPUT
+      系统上电 : Bool;       // 上电允许
+      启动按钮 : Bool;       // 启动信号（上升沿）
+      停止按钮 : Bool;       // 急停/停止
+      转盘原点 : Bool;       // I10.0 原点
+      料块检测 : Bool;       // I10.1 上料工位有料
+      料块芯检测 : Bool;     // I10.2 料块是否有芯（TRUE=有芯）
+      料芯井检测 : Bool;     // I10.3 料芯井有料
+      料块固定 : Bool;       // I10.4 工件固定到位
+      压料柱回位 : Bool;     // I10.5 压料柱在上位
+      压料柱到位 : Bool;     // I10.6 压料柱下压到位
+   END_VAR
+
+   VAR_OUTPUT
+      工件固定气缸 : Bool;   // Q4.2 夹紧
+      料块推出气缸 : Bool;   // Q4.3 推料芯
+      压料柱气缸 : Bool;     // Q4.4 压料
+      转盘使能 : Bool;       // 伺服使能
+      转盘正转 : Bool;       // 自检正转（PTO正向）
+      转盘反转 : Bool;       // 自检反转（PTO反向）
+   END_VAR
+
+   VAR_IN_OUT
+      转盘实际位置 : LReal;  // 轴反馈位置（脉冲）
+      设定绝对位置 : LReal;  // 轴目标位置（脉冲）
+      启动绝对位置 : Bool;   // 轴定位执行脉冲（Execute）
+      启动回原点 : Bool;     // 回零脉冲（Execute）
+   END_VAR
+
+   VAR CONSTANT
+      // 位置常量（按现场校准，可直接改数值）
+      cPos_原点   : LReal := 0.0;       // 0°
+      cPos_检测   : LReal := 36000.0;   // 90°
+      cPos_装配   : LReal := 70000.0;   // 180°
+      cPos_回原   : LReal := 140000.0;  // 360°=回原
+      cPosTol     : LReal := 500.0;     // 到位容差
+
+      // 时间常量
+      cT_自检正转 : TIME  := t#5s;      // 上电自检正转
+      cT_检测保持 : TIME  := t#2s;      // 空/有芯检测保持
+      cT_装配保持 : TIME  := t#1s;      // 装配保持
+      cT_脉冲宽度 : TIME  := t#100ms;   // Execute 脉冲宽度
+
+      // 状态定义
+      c状态_自检启动   : INT := 0;
+      c状态_自检正转   : INT := 10;
+      c状态_自检回零   : INT := 20;
+      c状态_待放料     : INT := 30;
+      c状态_转到检测   : INT := 40;
+      c状态_检测保持   : INT := 50;
+      c状态_空芯转装配 : INT := 60;
+      c状态_等待料芯   : INT := 70;
+      c状态_执行装配   : INT := 80;
+      c状态_空芯回原   : INT := 90;
+      c状态_有芯回原   : INT := 100;
+      c状态_完成待机   : INT := 110;
+   END_VAR
+
+   VAR
+      状态 : INT := c状态_自检启动;
+      上一状态 : INT;
+      启动沿 : Bool;
+      上次启动 : Bool;
+      b自检完成 : Bool;
+      b空芯 : Bool;
+      b发定位 : Bool;
+      b发回零 : Bool;
+      本次目标 : LReal;
+
+      t自检正转 {InstructionName := 'IEC_TIMER'; LibVersion := '1.0'} : IEC_TIMER;
+      t检测保持 {InstructionName := 'IEC_TIMER'; LibVersion := '1.0'} : IEC_TIMER;
+      t装配保持 {InstructionName := 'IEC_TIMER'; LibVersion := '1.0'} : IEC_TIMER;
+      t脉冲定位 {InstructionName := 'IEC_TIMER'; LibVersion := '1.0'} : IEC_TIMER;
+      t脉冲回零 {InstructionName := 'IEC_TIMER'; LibVersion := '1.0'} : IEC_TIMER;
+   END_VAR
+
+BEGIN
+    // 上升沿
+    启动沿 := #启动按钮 AND NOT 上次启动;
+    上次启动 := #启动按钮;
+
+    // 默认输出
+    #转盘使能 := #系统上电;
+    #转盘正转 := FALSE;
+    #转盘反转 := FALSE;
+    #启动绝对位置 := FALSE;
+    #启动回原点 := FALSE;
+
+    // 停止按钮立即回待机
+    IF #停止按钮 THEN
+        #转盘使能 := FALSE;
+        #转盘正转 := FALSE;
+        #转盘反转 := FALSE;
+        状态 := c状态_完成待机;
+        b发定位 := FALSE;
+        b发回零 := FALSE;
+        t自检正转.TON(IN := FALSE, PT := cT_自检正转);
+        t检测保持.TON(IN := FALSE, PT := cT_检测保持);
+        t装配保持.TON(IN := FALSE, PT := cT_装配保持);
+        t脉冲定位.TON(IN := FALSE, PT := cT_脉冲宽度);
+        t脉冲回零.TON(IN := FALSE, PT := cT_脉冲宽度);
+    END_IF;
+
+    // 状态切换时清一次性命令标志
+    IF 状态 <> 上一状态 THEN
+        b发定位 := FALSE;
+        b发回零 := FALSE;
+        t检测保持.TON(IN := FALSE, PT := cT_检测保持);
+        t装配保持.TON(IN := FALSE, PT := cT_装配保持);
+    END_IF;
+    上一状态 := 状态;
+
+    CASE 状态 OF
+        // 上电自检：正转5s → 回零 → 完成
+        c状态_自检启动:
+            b自检完成 := FALSE;
+            #转盘正转 := FALSE;
+            #转盘反转 := FALSE;
+            状态 := c状态_自检正转;
+
+        c状态_自检正转:
+            #转盘正转 := TRUE;
+            t自检正转.TON(IN := TRUE, PT := cT_自检正转);
+            IF t自检正转.Q THEN
+                #转盘正转 := FALSE;
+                t自检正转.TON(IN := FALSE, PT := cT_自检正转);
+                状态 := c状态_自检回零;
+            END_IF;
+
+        c状态_自检回零:
+            IF NOT b发回零 THEN
+                b发回零 := TRUE;       // 单次回零脉冲
+            END_IF;
+            IF #转盘原点 THEN
+                b自检完成 := TRUE;
+                状态 := c状态_待放料;
+            END_IF;
+
+        // 主流程：等待放料 → 检测分支 → 回原
+        c状态_待放料:
+            #工件固定气缸 := FALSE;
+            #料块推出气缸 := FALSE;
+            #压料柱气缸 := FALSE;
+            IF b自检完成 AND 启动沿 AND #料块检测 AND #压料柱回位 THEN
+                状态 := c状态_转到检测;
+                b空芯 := FALSE;
+            END_IF;
+
+        c状态_转到检测:
+            #工件固定气缸 := TRUE; // 转动前先夹紧
+            IF #料块固定 THEN
+                IF 本次目标 <> cPos_检测 THEN
+                    本次目标 := cPos_检测;
+                    b发定位 := TRUE;
+                END_IF;
+                #设定绝对位置 := 本次目标;
+                IF ABS(#转盘实际位置 - cPos_检测) <= cPosTol THEN
+                    状态 := c状态_检测保持;
+                    t检测保持.TON(IN := FALSE, PT := cT_检测保持);
+                END_IF;
+            END_IF;
+
+        c状态_检测保持:
+            #工件固定气缸 := TRUE;
+            t检测保持.TON(IN := TRUE, PT := cT_检测保持);
+            IF t检测保持.Q THEN
+                b空芯 := NOT #料块芯检测; // FALSE=空芯, TRUE=有芯
+                t检测保持.TON(IN := FALSE, PT := cT_检测保持);
+                IF b空芯 THEN
+                    状态 := c状态_空芯转装配;
+                ELSE
+                    状态 := c状态_有芯回原;
+                END_IF;
+            END_IF;
+
+        c状态_空芯转装配:
+            #工件固定气缸 := TRUE;
+            IF 本次目标 <> cPos_装配 THEN
+                本次目标 := cPos_装配;
+                b发定位 := TRUE;
+            END_IF;
+            #设定绝对位置 := 本次目标;
+            IF ABS(#转盘实际位置 - cPos_装配) <= cPosTol THEN
+                IF #料芯井检测 THEN
+                    状态 := c状态_执行装配;
+                ELSE
+                    状态 := c状态_等待料芯;
+                END_IF;
+            END_IF;
+
+        c状态_等待料芯:
+            #工件固定气缸 := TRUE;
+            IF #料芯井检测 THEN
+                状态 := c状态_执行装配;
+            END_IF;
+
+        c状态_执行装配:
+            #工件固定气缸 := TRUE;
+            #料块推出气缸 := TRUE;
+            #压料柱气缸 := TRUE;
+            t装配保持.TON(IN := TRUE, PT := cT_装配保持);
+            IF t装配保持.Q THEN
+                #料块推出气缸 := FALSE;
+                #压料柱气缸 := FALSE;
+                t装配保持.TON(IN := FALSE, PT := cT_装配保持);
+                状态 := c状态_空芯回原;
+            END_IF;
+
+        c状态_空芯回原:
+            #工件固定气缸 := TRUE;
+            IF 本次目标 <> cPos_回原 THEN
+                本次目标 := cPos_回原;
+                b发定位 := TRUE;
+            END_IF;
+            #设定绝对位置 := 本次目标;
+            IF ABS(#转盘实际位置 - cPos_回原) <= cPosTol THEN
+                状态 := c状态_完成待机;
+            END_IF;
+
+        c状态_有芯回原:
+            #工件固定气缸 := TRUE;
+            IF 本次目标 <> cPos_回原 THEN
+                本次目标 := cPos_回原;
+                b发定位 := TRUE;
+            END_IF;
+            #设定绝对位置 := 本次目标;
+            IF ABS(#转盘实际位置 - cPos_回原) <= cPosTol THEN
+                状态 := c状态_完成待机;
+            END_IF;
+
+        c状态_完成待机:
+            #工件固定气缸 := FALSE;
+            #料块推出气缸 := FALSE;
+            #压料柱气缸 := FALSE;
+            IF 启动沿 AND #料块检测 AND #压料柱回位 THEN
+                状态 := c状态_转到检测;
+                b空芯 := FALSE;
+            END_IF;
+
+        ELSE
+            状态 := c状态_待放料;
+    END_CASE;
+
+    // 单扫描脉冲：定位
+    IF b发定位 THEN
+        #启动绝对位置 := TRUE;
+        t脉冲定位.TON(IN := TRUE, PT := cT_脉冲宽度);
+        IF t脉冲定位.Q THEN
+            b发定位 := FALSE;
+            t脉冲定位.TON(IN := FALSE, PT := cT_脉冲宽度);
+        END_IF;
+    END_IF;
+
+    // 单扫描脉冲：回零
+    IF b发回零 THEN
+        #启动回原点 := TRUE;
+        t脉冲回零.TON(IN := TRUE, PT := cT_脉冲宽度);
+        IF t脉冲回零.Q THEN
+            b发回零 := FALSE;
+            t脉冲回零.TON(IN := FALSE, PT := cT_脉冲宽度);
+        END_IF;
+    END_IF;
+
+END_FUNCTION_BLOCK

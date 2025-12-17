@@ -1,0 +1,24 @@
+# PLC 配置
+plc:
+  ip: "192.168.0.1"       # PLC IP 地址
+  rack: 0                 # 机架号
+  slot: 1                 # 插槽号
+  db: 200                 # 数据块编号
+  velocity: 50.0          # 默认速度 (mm/s)
+  timeout: 30.0           # 等待超时 (s)
+  poll_interval: 0.01     # 轮询间隔 (s)
+
+# 仿真配置
+simulation:
+  fps: 60                 # 动画帧率
+  window_size: [800, 600] # 窗口大小 [宽, 高]
+  xlim: [0, 800]          # X 轴范围
+  ylim: [-200, 400]       # Y 轴范围
+  trail_length: 100       # 轨迹尾迹长度
+  show_grid: true         # 显示网格
+
+# 运行模式
+# "sync": 仿真 + PLC 同步
+# "sim_only": 仅仿真
+# "plc_only": 仅 PLC
+mode: "sync"
