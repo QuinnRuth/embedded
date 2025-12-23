@@ -85,11 +85,7 @@ endforeach()
 set(CMAKE_CXX_FLAGS_INIT "${CMAKE_CXX_FLAGS_INIT} -std=gnu++17 -Wall -Wextra")
 
 # 裸机C++常用选项
-list(APPEND CMAKE_CXX_FLAGS_INIT
-    -fno-rtti             # 禁用运行时类型信息(节省空间)
-    -fno-exceptions       # 禁用异常(节省空间)
-    -fno-threadsafe-statics  # 禁用静态变量线程安全
-)
+set(CMAKE_CXX_FLAGS_INIT "${CMAKE_CXX_FLAGS_INIT} -fno-rtti -fno-exceptions -fno-threadsafe-statics")
 
 # ============================================================================
 # 汇编编译选项

@@ -1,6 +1,13 @@
 /* Minimal STM32F103C8T6 linker script */
 /* Flash 64KB @0x08000000, RAM 20KB @0x20000000 */
 
+/* 栈顶地址 = RAM起始地址 + RAM大小 */
+_estack = 0x20005000;    /* end of RAM (20KB) */
+
+/* 最小堆栈大小 */
+_Min_Heap_Size = 0x200;   /* 512 bytes */
+_Min_Stack_Size = 0x400;  /* 1KB */
+
 MEMORY
 {
   FLASH (rx)  : ORIGIN = 0x08000000, LENGTH = 64K
