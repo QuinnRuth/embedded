@@ -163,8 +163,123 @@ _estack = 0x20005000;    /* End of RAM (20KB for F103C8T6) */
 Must always specify:
 1. Toolchain: `-DCMAKE_TOOLCHAIN_FILE=cmake/toolchains/arm-gcc.cmake`
 2. Board: `-DBOARD=stm32f103c8t6` (or other board name)
+3. Application: `-DAPP=<app_name>` (for multi-app projects)
 
-If either is missing, CMake will fatal-error with helpful message.
+If any required parameter is missing, CMake will fatal-error with helpful message.
+
+---
+
+## Multi-Application Support (多程序支持)
+
+Projects can contain multiple main programs that share common modules. Use `-DAPP=` to select which program to build.
+
+### File Naming Convention
+
+```
+src/
+├── main_grenade.c     # -DAPP=grenade
+├── main_oled_demo.c   # -DAPP=oled_demo
+├── main_led_test.c    # -DAPP=led_test
+├── Delay.c            # Shared module (auto-included)
+└── OLED.c             # Shared module (auto-included)
+```
+
+### CMakeLists.txt Template (多程序版本)
+
+```cmake
+# ============================================================================
+# 应用程序选择 (多程序支持)
+# ============================================================================
+set(APP "" CACHE STRING "Application to build (leave empty to list available)")
+
+# 自动扫描 src/main_*.c 文件，生成可用程序列表
+file(GLOB APP_MAIN_FILES "${CMAKE_SOURCE_DIR}/src/main_*.c")
+set(AVAILABLE_APPS "")
+foreach(APP_FILE ${APP_MAIN_FILES})
+    get_filename_component(APP_NAME ${APP_FILE} NAME_WE)
+    string(REPLACE "main_" "" APP_NAME ${APP_NAME})
+    list(APPEND AVAILABLE_APPS ${APP_NAME})
+endforeach()
+
+# 显示可用程序或验证选择
+if(NOT APP)
+    string(REPLACE ";" "\n    - " APP_LIST "${AVAILABLE_APPS}")
+    message(FATAL_ERROR
+        "Please specify application to build:\n"
+        "  cmake -S . -B build ... -DAPP=<app_name>\n\n"
+        "Available applications:\n    - ${APP_LIST}"
+    )
+endif()
+
+# 根据 APP 选择确定 main 文件
+set(APP_MAIN_SRC "${CMAKE_SOURCE_DIR}/src/main_${APP}.c")
+
+# 验证文件存在
+if(NOT EXISTS ${APP_MAIN_SRC})
+    message(FATAL_ERROR "Application '${APP}' not found: ${APP_MAIN_SRC}")
+endif()
+
+# 公共模块 (所有程序共享)
+set(COMMON_SOURCES
+    src/Delay.c
+    src/OLED.c
+    # 添加更多共享模块...
+)
+
+# 应用程序主目标
+add_executable(firmware.elf
+    ${APP_MAIN_SRC}
+    ${COMMON_SOURCES}
+    ${STARTUP}
+)
+```
+
+### Usage Commands
+
+```bash
+# List available applications (omit -DAPP)
+cmake -S . -B build \
+    -DCMAKE_TOOLCHAIN_FILE=cmake/toolchains/arm-gcc.cmake \
+    -DBOARD=stm32f103c8t6 -G Ninja
+
+# Build specific application
+cmake -S . -B build \
+    -DCMAKE_TOOLCHAIN_FILE=cmake/toolchains/arm-gcc.cmake \
+    -DBOARD=stm32f103c8t6 \
+    -DAPP=grenade \
+    -G Ninja
+cmake --build build
+
+# Switch application (reconfigure required)
+cmake -S . -B build -DAPP=oled_demo
+cmake --build build
+
+# One-liner: switch, build, flash
+APP=grenade && cmake -S . -B build \
+    -DCMAKE_TOOLCHAIN_FILE=cmake/toolchains/arm-gcc.cmake \
+    -DBOARD=stm32f103c8t6 -DAPP=$APP -G Ninja && \
+    cmake --build build && \
+    openocd -f boards/stm32f103c8t6/openocd.cfg \
+    -c "program build/firmware.elf verify reset exit"
+```
+
+### Adding New Applications
+
+1. Create `src/main_<name>.c` (e.g., `main_timer_demo.c`)
+2. CMake auto-detects it - **no CMakeLists.txt changes needed**
+3. Build with `-DAPP=<name>` (e.g., `-DAPP=timer_demo`)
+
+### Adding Shared Modules
+
+1. Add `src/NewModule.c` and `include/NewModule.h`
+2. Update CMakeLists.txt `COMMON_SOURCES`:
+```cmake
+set(COMMON_SOURCES
+    src/Delay.c
+    src/OLED.c
+    src/NewModule.c  # Add here
+)
+```
 
 ---
 
