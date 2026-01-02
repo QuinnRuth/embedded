@@ -1,0 +1,5 @@
+/home/muqiao/dev/embedded/stm32/learning/lesson_10-1/src/MPU6050.c:7:6:MPU6050_WriteReg	16	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_10-1/src/MPU6050.c:19:9:MPU6050_ReadReg	8	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_10-1/src/MPU6050.c:39:6:MPU6050_Init	8	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_10-1/src/MPU6050.c:51:9:MPU6050_GetID	0	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_10-1/src/MPU6050.c:56:6:MPU6050_GetData	24	static

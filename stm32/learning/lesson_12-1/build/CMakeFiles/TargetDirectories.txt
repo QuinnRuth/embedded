@@ -1,0 +1,5 @@
+/home/muqiao/dev/embedded/stm32/learning/lesson_12-1/build/CMakeFiles/cmsis.dir
+/home/muqiao/dev/embedded/stm32/learning/lesson_12-1/build/CMakeFiles/hal.dir
+/home/muqiao/dev/embedded/stm32/learning/lesson_12-1/build/CMakeFiles/firmware.elf.dir
+/home/muqiao/dev/embedded/stm32/learning/lesson_12-1/build/CMakeFiles/edit_cache.dir
+/home/muqiao/dev/embedded/stm32/learning/lesson_12-1/build/CMakeFiles/rebuild_cache.dir

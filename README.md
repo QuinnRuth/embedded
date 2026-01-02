@@ -242,10 +242,13 @@ cmake -S . -B build \
 # 编译
 cmake --build build
 
-# 烧录 (连接 ST-Link 后)
-openocd -f boards/stm32f103c8t6/openocd.cfg \
+# 烧录 (WSL 需要 sudo)
+echo "zxcvbnm" | sudo -S openocd -f boards/stm32f103c8t6/openocd.cfg \
     -c "program build/firmware.elf verify reset exit"
 ```
+
+### 系统密码
+- **sudo 密码**: `zxcvbnm`
 
 ---
 
@@ -266,8 +269,8 @@ cmake --build build
 
 # 4. 烧录
 cmake --build build --target flash
-# 或手动:
-openocd -f boards/stm32f103c8t6/openocd.cfg \
+# 或手动 (WSL 需要 sudo):
+echo "zxcvbnm" | sudo -S openocd -f boards/stm32f103c8t6/openocd.cfg \
     -c "program build/firmware.elf verify reset exit"
 
 # 5. 调试 (在 VS Code 中按 F5)

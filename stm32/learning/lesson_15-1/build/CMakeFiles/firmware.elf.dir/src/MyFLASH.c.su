@@ -1,0 +1,7 @@
+/home/muqiao/dev/embedded/stm32/learning/lesson_15-1/src/MyFLASH.c:8:10:MyFLASH_ReadWord	0	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_15-1/src/MyFLASH.c:18:10:MyFLASH_ReadHalfWord	0	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_15-1/src/MyFLASH.c:28:9:MyFLASH_ReadByte	0	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_15-1/src/MyFLASH.c:39:6:MyFLASH_EraseAllPages	8	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_15-1/src/MyFLASH.c:51:6:MyFLASH_ErasePage	8	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_15-1/src/MyFLASH.c:64:6:MyFLASH_ProgramWord	16	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_15-1/src/MyFLASH.c:77:6:MyFLASH_ProgramHalfWord	16	static

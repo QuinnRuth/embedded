@@ -1,0 +1,3 @@
+/home/muqiao/dev/embedded/stm32/learning/lesson_15-1/src/Store.c:14:6:Store_Init	16	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_15-1/src/Store.c:39:6:Store_Save	16	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_15-1/src/Store.c:53:6:Store_Clear	8	static

@@ -1,0 +1,8 @@
+/home/muqiao/dev/embedded/stm32/learning/lesson_9-1/src/Serial.c:10:6:Serial_Init	32	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_9-1/src/Serial.c:42:6:Serial_SendByte	8	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_9-1/src/Serial.c:55:6:Serial_SendArray	16	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_9-1/src/Serial.c:69:6:Serial_SendString	16	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_9-1/src/Serial.c:82:10:Serial_Pow	0	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_9-1/src/Serial.c:98:6:Serial_SendNumber	16	static
+/usr/include/newlib/stdio.h:214:5:fputc	8	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_9-1/src/Serial.c:124:6:Serial_Printf	112	static

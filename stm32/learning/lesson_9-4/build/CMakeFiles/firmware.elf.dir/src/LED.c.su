@@ -1,0 +1,7 @@
+/home/muqiao/dev/embedded/stm32/learning/lesson_9-4/src/LED.c:8:6:LED_Init	24	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_9-4/src/LED.c:29:6:LED1_ON	0	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_9-4/src/LED.c:39:6:LED1_OFF	0	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_9-4/src/LED.c:49:6:LED1_Turn	8	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_9-4/src/LED.c:66:6:LED2_ON	0	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_9-4/src/LED.c:76:6:LED2_OFF	0	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_9-4/src/LED.c:86:6:LED2_Turn	8	static
