@@ -3482,17 +3482,17 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
  .debug_abbrev  0x0000000000000d17      0x161 CMakeFiles/firmware.elf.dir/src/MyDMA.c.obj
  .debug_abbrev  0x0000000000000e78       0x12 CMakeFiles/firmware.elf.dir/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/gcc_ride7/startup_stm32f10x_md.s.obj
 
-.debug_line     0x0000000000000000     0x3851
+.debug_line     0x0000000000000000     0x3863
  *(.debug_line)
  .debug_line    0x0000000000000000      0x561 CMakeFiles/cmsis.dir/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x/system_stm32f10x.c.obj
  .debug_line    0x0000000000000561      0x6d9 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_dma.c.obj
  .debug_line    0x0000000000000c3a      0x8f0 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_gpio.c.obj
  .debug_line    0x000000000000152a      0xb4d CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_rcc.c.obj
- .debug_line    0x0000000000002077      0x506 CMakeFiles/firmware.elf.dir/src/main_dma.c.obj
- .debug_line    0x000000000000257d      0x44e CMakeFiles/firmware.elf.dir/src/Delay.c.obj
- .debug_line    0x00000000000029cb      0x935 CMakeFiles/firmware.elf.dir/src/OLED.c.obj
- .debug_line    0x0000000000003300      0x46c CMakeFiles/firmware.elf.dir/src/MyDMA.c.obj
- .debug_line    0x000000000000376c       0xe5 CMakeFiles/firmware.elf.dir/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/gcc_ride7/startup_stm32f10x_md.s.obj
+ .debug_line    0x0000000000002077      0x508 CMakeFiles/firmware.elf.dir/src/main_dma.c.obj
+ .debug_line    0x000000000000257f      0x44e CMakeFiles/firmware.elf.dir/src/Delay.c.obj
+ .debug_line    0x00000000000029cd      0x935 CMakeFiles/firmware.elf.dir/src/OLED.c.obj
+ .debug_line    0x0000000000003302      0x47c CMakeFiles/firmware.elf.dir/src/MyDMA.c.obj
+ .debug_line    0x000000000000377e       0xe5 CMakeFiles/firmware.elf.dir/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/gcc_ride7/startup_stm32f10x_md.s.obj
 
 .debug_frame    0x0000000000000000      0x74c
  *(.debug_frame)

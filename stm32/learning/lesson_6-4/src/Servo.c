@@ -6,7 +6,7 @@
  * Servo Configuration (SG90):
  *   - Period: 20ms (50Hz)
  *   - Pulse: 0.5ms (0°) to 2.5ms (180°)
- *   - CCR range: 500 to 2500 (at 100Hz PWM)
+ *   - CCR2 range: 500 to 2500 (TIM2 @ 1MHz counter clock)
  */
 
 #include "stm32f10x.h"

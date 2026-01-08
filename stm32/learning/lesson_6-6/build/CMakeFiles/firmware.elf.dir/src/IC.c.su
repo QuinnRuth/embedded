@@ -1,4 +1,2 @@
-/home/muqiao/dev/embedded/stm32/learning/lesson_6-6/src/IC.c:17:6:IC_Init	48	static
-/home/muqiao/dev/embedded/stm32/learning/lesson_6-6/src/IC.c:55:6:IC_Init_PWMI	48	static
-/home/muqiao/dev/embedded/stm32/learning/lesson_6-6/src/IC.c:94:10:IC_GetFreq	8	static
-/home/muqiao/dev/embedded/stm32/learning/lesson_6-6/src/IC.c:103:10:IC_GetDuty	16	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_6-6/src/IC.c:12:6:IC_Init	48	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_6-6/src/IC.c:51:10:IC_GetFreq	8	static

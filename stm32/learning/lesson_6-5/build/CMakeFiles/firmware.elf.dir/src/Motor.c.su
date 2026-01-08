@@ -1,2 +1,4 @@
-/home/muqiao/dev/embedded/stm32/learning/lesson_6-5/src/Motor.c:18:6:Motor_Init	16	static
-/home/muqiao/dev/embedded/stm32/learning/lesson_6-5/src/Motor.c:37:6:Motor_SetSpeed	8	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_6-5/src/Motor.c:19:6:Motor_Init	16	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_6-5/src/Motor.c:39:6:Motor_SetLed	0	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_6-5/src/Motor.c:54:6:Motor_ToggleLed	0	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_6-5/src/Motor.c:75:6:Motor_SetSpeed	8	static

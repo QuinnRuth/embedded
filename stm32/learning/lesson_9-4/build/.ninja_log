@@ -30,3 +30,6 @@
 898	1042	1767082848899583478	CMakeFiles/firmware.elf.dir/src/OLED.c.obj	afba4c23a118ffd7
 967	1054	1767082848911582233	CMakeFiles/firmware.elf.dir/src/LED.c.obj	4ec097a8a4eb9029
 1054	1308	1767082849159556111	firmware.elf	dd08399878354718
+1	284	1767858384812506486	CMakeFiles/firmware.elf.dir/src/main.c.obj	d071e57d3b78bb97
+1	298	1767858384824506486	CMakeFiles/firmware.elf.dir/src/Serial.c.obj	7d2f9dfbe01049d2
+298	781	1767858385292506458	firmware.elf	dd08399878354718

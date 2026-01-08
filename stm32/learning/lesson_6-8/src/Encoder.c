@@ -11,8 +11,6 @@
 #include "stm32f10x.h"
 #include "Encoder.h"
 
-int16_t Encoder_Count = 0;
-
 /**
  * @brief  Initialize encoder interface on TIM3
  */
@@ -30,10 +28,20 @@ void Encoder_Init(void)
     TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStructure;
     TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
     TIM_TimeBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
-    TIM_TimeBaseInitStructure.TIM_Period = 65535;
-    TIM_TimeBaseInitStructure.TIM_Prescaler = 1;
+    TIM_TimeBaseInitStructure.TIM_Period = 65536 - 1;
+    TIM_TimeBaseInitStructure.TIM_Prescaler = 1 - 1;
     TIM_TimeBaseInitStructure.TIM_RepetitionCounter = 0;
     TIM_TimeBaseInit(TIM3, &TIM_TimeBaseInitStructure);
+
+    /* Input capture filter must be configured before EncoderInterfaceConfig */
+    TIM_ICInitTypeDef TIM_ICInitStructure;
+    TIM_ICStructInit(&TIM_ICInitStructure);
+    TIM_ICInitStructure.TIM_Channel = TIM_Channel_1;
+    TIM_ICInitStructure.TIM_ICFilter = 0xF;
+    TIM_ICInit(TIM3, &TIM_ICInitStructure);
+    TIM_ICInitStructure.TIM_Channel = TIM_Channel_2;
+    TIM_ICInitStructure.TIM_ICFilter = 0xF;
+    TIM_ICInit(TIM3, &TIM_ICInitStructure);
 
     TIM_EncoderInterfaceConfig(TIM3, TIM_EncoderMode_TI12,
                                TIM_ICPolarity_Rising,
@@ -48,7 +56,8 @@ void Encoder_Init(void)
  */
 int16_t Encoder_Get(void)
 {
-    int16_t Temp = Encoder_Count;
-    Encoder_Count = 0;
+    int16_t Temp;
+    Temp = TIM_GetCounter(TIM3);
+    TIM_SetCounter(TIM3, 0);
     return Temp;
 }

@@ -51,8 +51,6 @@ build CMakeFiles/cmsis.dir/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x/system_s
   INCLUDES = -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/CoreSupport -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/inc
   OBJECT_DIR = CMakeFiles/cmsis.dir
   OBJECT_FILE_DIR = CMakeFiles/cmsis.dir/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x
-  TARGET_COMPILE_PDB = CMakeFiles/cmsis.dir/
-  TARGET_PDB = ""
 
 
 
@@ -77,8 +75,6 @@ build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/misc.c.obj: C_CO
   INCLUDES = -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/inc -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/CoreSupport -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x
   OBJECT_DIR = CMakeFiles/hal.dir
   OBJECT_FILE_DIR = CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src
-  TARGET_COMPILE_PDB = CMakeFiles/hal.dir/
-  TARGET_PDB = ""
 
 build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_adc.c.obj: C_COMPILER__hal_ /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_adc.c || cmake_object_order_depends_target_hal
   DEFINES = -DHSE_VALUE=8000000 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER
@@ -87,8 +83,6 @@ build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_adc.c.
   INCLUDES = -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/inc -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/CoreSupport -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x
   OBJECT_DIR = CMakeFiles/hal.dir
   OBJECT_FILE_DIR = CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src
-  TARGET_COMPILE_PDB = CMakeFiles/hal.dir/
-  TARGET_PDB = ""
 
 build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_bkp.c.obj: C_COMPILER__hal_ /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_bkp.c || cmake_object_order_depends_target_hal
   DEFINES = -DHSE_VALUE=8000000 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER
@@ -97,8 +91,6 @@ build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_bkp.c.
   INCLUDES = -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/inc -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/CoreSupport -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x
   OBJECT_DIR = CMakeFiles/hal.dir
   OBJECT_FILE_DIR = CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src
-  TARGET_COMPILE_PDB = CMakeFiles/hal.dir/
-  TARGET_PDB = ""
 
 build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_can.c.obj: C_COMPILER__hal_ /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_can.c || cmake_object_order_depends_target_hal
   DEFINES = -DHSE_VALUE=8000000 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER
@@ -107,8 +99,6 @@ build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_can.c.
   INCLUDES = -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/inc -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/CoreSupport -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x
   OBJECT_DIR = CMakeFiles/hal.dir
   OBJECT_FILE_DIR = CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src
-  TARGET_COMPILE_PDB = CMakeFiles/hal.dir/
-  TARGET_PDB = ""
 
 build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_cec.c.obj: C_COMPILER__hal_ /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_cec.c || cmake_object_order_depends_target_hal
   DEFINES = -DHSE_VALUE=8000000 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER
@@ -117,8 +107,6 @@ build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_cec.c.
   INCLUDES = -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/inc -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/CoreSupport -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x
   OBJECT_DIR = CMakeFiles/hal.dir
   OBJECT_FILE_DIR = CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src
-  TARGET_COMPILE_PDB = CMakeFiles/hal.dir/
-  TARGET_PDB = ""
 
 build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_crc.c.obj: C_COMPILER__hal_ /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_crc.c || cmake_object_order_depends_target_hal
   DEFINES = -DHSE_VALUE=8000000 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER
@@ -127,8 +115,6 @@ build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_crc.c.
   INCLUDES = -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/inc -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/CoreSupport -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x
   OBJECT_DIR = CMakeFiles/hal.dir
   OBJECT_FILE_DIR = CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src
-  TARGET_COMPILE_PDB = CMakeFiles/hal.dir/
-  TARGET_PDB = ""
 
 build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_dac.c.obj: C_COMPILER__hal_ /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_dac.c || cmake_object_order_depends_target_hal
   DEFINES = -DHSE_VALUE=8000000 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER
@@ -137,8 +123,6 @@ build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_dac.c.
   INCLUDES = -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/inc -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/CoreSupport -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x
   OBJECT_DIR = CMakeFiles/hal.dir
   OBJECT_FILE_DIR = CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src
-  TARGET_COMPILE_PDB = CMakeFiles/hal.dir/
-  TARGET_PDB = ""
 
 build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_dbgmcu.c.obj: C_COMPILER__hal_ /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_dbgmcu.c || cmake_object_order_depends_target_hal
   DEFINES = -DHSE_VALUE=8000000 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER
@@ -147,8 +131,6 @@ build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_dbgmcu
   INCLUDES = -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/inc -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/CoreSupport -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x
   OBJECT_DIR = CMakeFiles/hal.dir
   OBJECT_FILE_DIR = CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src
-  TARGET_COMPILE_PDB = CMakeFiles/hal.dir/
-  TARGET_PDB = ""
 
 build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_dma.c.obj: C_COMPILER__hal_ /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_dma.c || cmake_object_order_depends_target_hal
   DEFINES = -DHSE_VALUE=8000000 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER
@@ -157,8 +139,6 @@ build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_dma.c.
   INCLUDES = -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/inc -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/CoreSupport -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x
   OBJECT_DIR = CMakeFiles/hal.dir
   OBJECT_FILE_DIR = CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src
-  TARGET_COMPILE_PDB = CMakeFiles/hal.dir/
-  TARGET_PDB = ""
 
 build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_exti.c.obj: C_COMPILER__hal_ /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_exti.c || cmake_object_order_depends_target_hal
   DEFINES = -DHSE_VALUE=8000000 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER
@@ -167,8 +147,6 @@ build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_exti.c
   INCLUDES = -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/inc -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/CoreSupport -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x
   OBJECT_DIR = CMakeFiles/hal.dir
   OBJECT_FILE_DIR = CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src
-  TARGET_COMPILE_PDB = CMakeFiles/hal.dir/
-  TARGET_PDB = ""
 
 build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_flash.c.obj: C_COMPILER__hal_ /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_flash.c || cmake_object_order_depends_target_hal
   DEFINES = -DHSE_VALUE=8000000 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER
@@ -177,8 +155,6 @@ build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_flash.
   INCLUDES = -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/inc -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/CoreSupport -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x
   OBJECT_DIR = CMakeFiles/hal.dir
   OBJECT_FILE_DIR = CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src
-  TARGET_COMPILE_PDB = CMakeFiles/hal.dir/
-  TARGET_PDB = ""
 
 build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_fsmc.c.obj: C_COMPILER__hal_ /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_fsmc.c || cmake_object_order_depends_target_hal
   DEFINES = -DHSE_VALUE=8000000 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER
@@ -187,8 +163,6 @@ build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_fsmc.c
   INCLUDES = -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/inc -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/CoreSupport -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x
   OBJECT_DIR = CMakeFiles/hal.dir
   OBJECT_FILE_DIR = CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src
-  TARGET_COMPILE_PDB = CMakeFiles/hal.dir/
-  TARGET_PDB = ""
 
 build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_gpio.c.obj: C_COMPILER__hal_ /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_gpio.c || cmake_object_order_depends_target_hal
   DEFINES = -DHSE_VALUE=8000000 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER
@@ -197,8 +171,6 @@ build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_gpio.c
   INCLUDES = -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/inc -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/CoreSupport -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x
   OBJECT_DIR = CMakeFiles/hal.dir
   OBJECT_FILE_DIR = CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src
-  TARGET_COMPILE_PDB = CMakeFiles/hal.dir/
-  TARGET_PDB = ""
 
 build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_i2c.c.obj: C_COMPILER__hal_ /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_i2c.c || cmake_object_order_depends_target_hal
   DEFINES = -DHSE_VALUE=8000000 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER
@@ -207,8 +179,6 @@ build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_i2c.c.
   INCLUDES = -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/inc -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/CoreSupport -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x
   OBJECT_DIR = CMakeFiles/hal.dir
   OBJECT_FILE_DIR = CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src
-  TARGET_COMPILE_PDB = CMakeFiles/hal.dir/
-  TARGET_PDB = ""
 
 build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_iwdg.c.obj: C_COMPILER__hal_ /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_iwdg.c || cmake_object_order_depends_target_hal
   DEFINES = -DHSE_VALUE=8000000 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER
@@ -217,8 +187,6 @@ build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_iwdg.c
   INCLUDES = -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/inc -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/CoreSupport -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x
   OBJECT_DIR = CMakeFiles/hal.dir
   OBJECT_FILE_DIR = CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src
-  TARGET_COMPILE_PDB = CMakeFiles/hal.dir/
-  TARGET_PDB = ""
 
 build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_pwr.c.obj: C_COMPILER__hal_ /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_pwr.c || cmake_object_order_depends_target_hal
   DEFINES = -DHSE_VALUE=8000000 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER
@@ -227,8 +195,6 @@ build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_pwr.c.
   INCLUDES = -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/inc -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/CoreSupport -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x
   OBJECT_DIR = CMakeFiles/hal.dir
   OBJECT_FILE_DIR = CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src
-  TARGET_COMPILE_PDB = CMakeFiles/hal.dir/
-  TARGET_PDB = ""
 
 build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_rcc.c.obj: C_COMPILER__hal_ /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_rcc.c || cmake_object_order_depends_target_hal
   DEFINES = -DHSE_VALUE=8000000 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER
@@ -237,8 +203,6 @@ build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_rcc.c.
   INCLUDES = -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/inc -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/CoreSupport -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x
   OBJECT_DIR = CMakeFiles/hal.dir
   OBJECT_FILE_DIR = CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src
-  TARGET_COMPILE_PDB = CMakeFiles/hal.dir/
-  TARGET_PDB = ""
 
 build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_rtc.c.obj: C_COMPILER__hal_ /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_rtc.c || cmake_object_order_depends_target_hal
   DEFINES = -DHSE_VALUE=8000000 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER
@@ -247,8 +211,6 @@ build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_rtc.c.
   INCLUDES = -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/inc -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/CoreSupport -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x
   OBJECT_DIR = CMakeFiles/hal.dir
   OBJECT_FILE_DIR = CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src
-  TARGET_COMPILE_PDB = CMakeFiles/hal.dir/
-  TARGET_PDB = ""
 
 build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_sdio.c.obj: C_COMPILER__hal_ /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_sdio.c || cmake_object_order_depends_target_hal
   DEFINES = -DHSE_VALUE=8000000 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER
@@ -257,8 +219,6 @@ build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_sdio.c
   INCLUDES = -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/inc -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/CoreSupport -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x
   OBJECT_DIR = CMakeFiles/hal.dir
   OBJECT_FILE_DIR = CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src
-  TARGET_COMPILE_PDB = CMakeFiles/hal.dir/
-  TARGET_PDB = ""
 
 build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_spi.c.obj: C_COMPILER__hal_ /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_spi.c || cmake_object_order_depends_target_hal
   DEFINES = -DHSE_VALUE=8000000 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER
@@ -267,8 +227,6 @@ build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_spi.c.
   INCLUDES = -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/inc -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/CoreSupport -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x
   OBJECT_DIR = CMakeFiles/hal.dir
   OBJECT_FILE_DIR = CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src
-  TARGET_COMPILE_PDB = CMakeFiles/hal.dir/
-  TARGET_PDB = ""
 
 build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj: C_COMPILER__hal_ /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c || cmake_object_order_depends_target_hal
   DEFINES = -DHSE_VALUE=8000000 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER
@@ -277,8 +235,6 @@ build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.
   INCLUDES = -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/inc -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/CoreSupport -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x
   OBJECT_DIR = CMakeFiles/hal.dir
   OBJECT_FILE_DIR = CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src
-  TARGET_COMPILE_PDB = CMakeFiles/hal.dir/
-  TARGET_PDB = ""
 
 build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_usart.c.obj: C_COMPILER__hal_ /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_usart.c || cmake_object_order_depends_target_hal
   DEFINES = -DHSE_VALUE=8000000 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER
@@ -287,8 +243,6 @@ build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_usart.
   INCLUDES = -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/inc -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/CoreSupport -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x
   OBJECT_DIR = CMakeFiles/hal.dir
   OBJECT_FILE_DIR = CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src
-  TARGET_COMPILE_PDB = CMakeFiles/hal.dir/
-  TARGET_PDB = ""
 
 build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_wwdg.c.obj: C_COMPILER__hal_ /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_wwdg.c || cmake_object_order_depends_target_hal
   DEFINES = -DHSE_VALUE=8000000 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER
@@ -297,8 +251,6 @@ build CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_wwdg.c
   INCLUDES = -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/inc -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/CoreSupport -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x
   OBJECT_DIR = CMakeFiles/hal.dir
   OBJECT_FILE_DIR = CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src
-  TARGET_COMPILE_PDB = CMakeFiles/hal.dir/
-  TARGET_PDB = ""
 
 
 
@@ -323,8 +275,6 @@ build CMakeFiles/firmware.elf.dir/src/main_encoder_speed.c.obj: C_COMPILER__firm
   INCLUDES = -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/include -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/CoreSupport -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/inc
   OBJECT_DIR = CMakeFiles/firmware.elf.dir
   OBJECT_FILE_DIR = CMakeFiles/firmware.elf.dir/src
-  TARGET_COMPILE_PDB = CMakeFiles/firmware.elf.dir/
-  TARGET_PDB = firmware.elf.pdb
 
 build CMakeFiles/firmware.elf.dir/src/Delay.c.obj: C_COMPILER__firmware.2eelf_ /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/src/Delay.c || cmake_object_order_depends_target_firmware.elf
   DEFINES = -DHSE_VALUE=8000000 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER
@@ -333,8 +283,6 @@ build CMakeFiles/firmware.elf.dir/src/Delay.c.obj: C_COMPILER__firmware.2eelf_ /
   INCLUDES = -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/include -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/CoreSupport -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/inc
   OBJECT_DIR = CMakeFiles/firmware.elf.dir
   OBJECT_FILE_DIR = CMakeFiles/firmware.elf.dir/src
-  TARGET_COMPILE_PDB = CMakeFiles/firmware.elf.dir/
-  TARGET_PDB = firmware.elf.pdb
 
 build CMakeFiles/firmware.elf.dir/src/OLED.c.obj: C_COMPILER__firmware.2eelf_ /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/src/OLED.c || cmake_object_order_depends_target_firmware.elf
   DEFINES = -DHSE_VALUE=8000000 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER
@@ -343,8 +291,6 @@ build CMakeFiles/firmware.elf.dir/src/OLED.c.obj: C_COMPILER__firmware.2eelf_ /h
   INCLUDES = -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/include -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/CoreSupport -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/inc
   OBJECT_DIR = CMakeFiles/firmware.elf.dir
   OBJECT_FILE_DIR = CMakeFiles/firmware.elf.dir/src
-  TARGET_COMPILE_PDB = CMakeFiles/firmware.elf.dir/
-  TARGET_PDB = firmware.elf.pdb
 
 build CMakeFiles/firmware.elf.dir/src/Timer.c.obj: C_COMPILER__firmware.2eelf_ /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/src/Timer.c || cmake_object_order_depends_target_firmware.elf
   DEFINES = -DHSE_VALUE=8000000 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER
@@ -353,8 +299,6 @@ build CMakeFiles/firmware.elf.dir/src/Timer.c.obj: C_COMPILER__firmware.2eelf_ /
   INCLUDES = -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/include -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/CoreSupport -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/inc
   OBJECT_DIR = CMakeFiles/firmware.elf.dir
   OBJECT_FILE_DIR = CMakeFiles/firmware.elf.dir/src
-  TARGET_COMPILE_PDB = CMakeFiles/firmware.elf.dir/
-  TARGET_PDB = firmware.elf.pdb
 
 build CMakeFiles/firmware.elf.dir/src/Encoder.c.obj: C_COMPILER__firmware.2eelf_ /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/src/Encoder.c || cmake_object_order_depends_target_firmware.elf
   DEFINES = -DHSE_VALUE=8000000 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER
@@ -363,8 +307,6 @@ build CMakeFiles/firmware.elf.dir/src/Encoder.c.obj: C_COMPILER__firmware.2eelf_
   INCLUDES = -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/include -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/CoreSupport -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/inc
   OBJECT_DIR = CMakeFiles/firmware.elf.dir
   OBJECT_FILE_DIR = CMakeFiles/firmware.elf.dir/src
-  TARGET_COMPILE_PDB = CMakeFiles/firmware.elf.dir/
-  TARGET_PDB = firmware.elf.pdb
 
 build CMakeFiles/firmware.elf.dir/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/gcc_ride7/startup_stm32f10x_md.s.obj: ASM_COMPILER__firmware.2eelf_ /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/gcc_ride7/startup_stm32f10x_md.s || cmake_object_order_depends_target_firmware.elf
   DEFINES = -DHSE_VALUE=8000000 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER
@@ -373,8 +315,6 @@ build CMakeFiles/firmware.elf.dir/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x/s
   INCLUDES = -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/include -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/CoreSupport -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x -I/home/muqiao/dev/embedded/stm32/learning/lesson_6-8/drivers/STM32F10x_StdPeriph_Driver/inc
   OBJECT_DIR = CMakeFiles/firmware.elf.dir
   OBJECT_FILE_DIR = CMakeFiles/firmware.elf.dir/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/gcc_ride7
-  TARGET_COMPILE_PDB = CMakeFiles/firmware.elf.dir/
-  TARGET_PDB = firmware.elf.pdb
 
 
 # =============================================================================
@@ -390,9 +330,8 @@ build firmware.elf: C_EXECUTABLE_LINKER__firmware.2eelf_ CMakeFiles/cmsis.dir/dr
   OBJECT_DIR = CMakeFiles/firmware.elf.dir
   POST_BUILD = cd /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/build && /usr/bin/arm-none-eabi-objcopy -O binary /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/build/firmware.elf /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/build/firmware.bin && /usr/bin/arm-none-eabi-objcopy -O ihex /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/build/firmware.elf /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/build/firmware.hex && /usr/bin/arm-none-eabi-size --format=berkeley /home/muqiao/dev/embedded/stm32/learning/lesson_6-8/build/firmware.elf
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/firmware.elf.dir/
   TARGET_FILE = firmware.elf
-  TARGET_PDB = firmware.elf.pdb
+  TARGET_PDB = firmware.elf.dbg
 
 
 #############################################
@@ -437,14 +376,14 @@ build all: phony cmsis hal firmware.elf
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../cmake/boards/stm32f103c8t6.cmake ../cmake/toolchains/arm-gcc.cmake /usr/share/cmake-3.22/Modules/CMakeASMCompiler.cmake.in /usr/share/cmake-3.22/Modules/CMakeASMInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCCompiler.cmake.in /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c /usr/share/cmake-3.22/Modules/CMakeCInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCXXCompiler.cmake.in /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp /usr/share/cmake-3.22/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.22/Modules/CMakeCompilerIdDetection.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineASMCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCXXCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCompileFeatures.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCompilerABI.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCompilerId.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineSystem.cmake /usr/share/cmake-3.22/Modules/CMakeFindBinUtils.cmake /usr/share/cmake-3.22/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.22/Modules/CMakeNinjaFindMake.cmake /usr/share/cmake-3.22/Modules/CMakeParseImplicitIncludeInfo.cmake /usr/share/cmake-3.22/Modules/CMakeParseImplicitLinkInfo.cmake /usr/share/cmake-3.22/Modules/CMakeParseLibraryArchitecture.cmake /usr/share/cmake-3.22/Modules/CMakeSystem.cmake.in /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.22/Modules/CMakeTestASMCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeTestCCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeTestCXXCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeTestCompilerCommon.cmake /usr/share/cmake-3.22/Modules/Compiler/ADSP-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/ARMCC-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/ARMClang-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/AppleClang-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Borland-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /usr/share/cmake-3.22/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Cray-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/GHS-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-ASM.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-FindBinUtils.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU.cmake /usr/share/cmake-3.22/Modules/Compiler/HP-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/IAR-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /usr/share/cmake-3.22/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /usr/share/cmake-3.22/Modules/Compiler/Intel-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/MSVC-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/NVHPC-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/PGI-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/PathScale-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/SCO-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/TI-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Watcom-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/XL-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/zOS-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Internal/FeatureTesting.cmake /usr/share/cmake-3.22/Modules/Platform/Generic.cmake CMakeCache.txt CMakeFiles/3.22.1/CMakeASMCompiler.cmake CMakeFiles/3.22.1/CMakeCCompiler.cmake CMakeFiles/3.22.1/CMakeCXXCompiler.cmake CMakeFiles/3.22.1/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../cmake/boards/stm32f103c8t6.cmake ../cmake/toolchains/arm-gcc.cmake /usr/share/cmake-3.22/Modules/CMakeASMInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.22/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-ASM.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU.cmake /usr/share/cmake-3.22/Modules/Platform/Generic.cmake CMakeCache.txt CMakeFiles/3.22.1/CMakeASMCompiler.cmake CMakeFiles/3.22.1/CMakeCCompiler.cmake CMakeFiles/3.22.1/CMakeCXXCompiler.cmake CMakeFiles/3.22.1/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ../CMakeLists.txt ../cmake/boards/stm32f103c8t6.cmake ../cmake/toolchains/arm-gcc.cmake /usr/share/cmake-3.22/Modules/CMakeASMCompiler.cmake.in /usr/share/cmake-3.22/Modules/CMakeASMInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCCompiler.cmake.in /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c /usr/share/cmake-3.22/Modules/CMakeCInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCXXCompiler.cmake.in /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp /usr/share/cmake-3.22/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.22/Modules/CMakeCompilerIdDetection.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineASMCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCXXCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCompileFeatures.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCompilerABI.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCompilerId.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineSystem.cmake /usr/share/cmake-3.22/Modules/CMakeFindBinUtils.cmake /usr/share/cmake-3.22/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.22/Modules/CMakeNinjaFindMake.cmake /usr/share/cmake-3.22/Modules/CMakeParseImplicitIncludeInfo.cmake /usr/share/cmake-3.22/Modules/CMakeParseImplicitLinkInfo.cmake /usr/share/cmake-3.22/Modules/CMakeParseLibraryArchitecture.cmake /usr/share/cmake-3.22/Modules/CMakeSystem.cmake.in /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.22/Modules/CMakeTestASMCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeTestCCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeTestCXXCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeTestCompilerCommon.cmake /usr/share/cmake-3.22/Modules/Compiler/ADSP-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/ARMCC-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/ARMClang-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/AppleClang-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Borland-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /usr/share/cmake-3.22/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Cray-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/GHS-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-ASM.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-FindBinUtils.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU.cmake /usr/share/cmake-3.22/Modules/Compiler/HP-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/IAR-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /usr/share/cmake-3.22/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /usr/share/cmake-3.22/Modules/Compiler/Intel-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/MSVC-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/NVHPC-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/PGI-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/PathScale-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/SCO-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/TI-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Watcom-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/XL-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/zOS-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Internal/FeatureTesting.cmake /usr/share/cmake-3.22/Modules/Platform/Generic.cmake CMakeCache.txt CMakeFiles/3.22.1/CMakeASMCompiler.cmake CMakeFiles/3.22.1/CMakeCCompiler.cmake CMakeFiles/3.22.1/CMakeCXXCompiler.cmake CMakeFiles/3.22.1/CMakeSystem.cmake: phony
+build ../CMakeLists.txt ../cmake/boards/stm32f103c8t6.cmake ../cmake/toolchains/arm-gcc.cmake /usr/share/cmake-3.22/Modules/CMakeASMInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.22/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-ASM.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU.cmake /usr/share/cmake-3.22/Modules/Platform/Generic.cmake CMakeCache.txt CMakeFiles/3.22.1/CMakeASMCompiler.cmake CMakeFiles/3.22.1/CMakeCCompiler.cmake CMakeFiles/3.22.1/CMakeCXXCompiler.cmake CMakeFiles/3.22.1/CMakeSystem.cmake: phony
 
 
 #############################################

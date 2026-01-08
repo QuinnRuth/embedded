@@ -1,47 +1,34 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
----
-
 ## Project Overview
 
-**Lesson 6-1**: TIM2定时器定时中断 (Timer Interrupt)
+**Lesson 11-2**：硬件SPI读写W25Q64
 
-## Build Commands
+## Build
 
 ```bash
-# Configure
 cmake -S . -B build \
     -DCMAKE_TOOLCHAIN_FILE=cmake/toolchains/arm-gcc.cmake \
     -DBOARD=stm32f103c8t6 \
     -G Ninja
-
-# Build
 cmake --build build
+```
 
-# Flash
+## Flash
+
+```bash
 openocd -f boards/stm32f103c8t6/openocd.cfg \
     -c "program build/firmware.elf verify reset exit"
 ```
 
 ## Key Files
 
-| File | Description |
-|------|-------------|
-| `src/Timer.c` | Timer initialization and interrupt handler |
-| `src/main_timer.c` | Main application |
-| `include/Timer.h` | Timer function declarations |
+- `src/main.c`
+- `src/MySPI.c` / `include/MySPI.h`（SPI1：PA5/PA6/PA7，CS=PA4）
+- `src/W25Q64.c` / `include/W25Q64.h`
+- `src/OLED.c` / `include/OLED.h`（PB8/PB9 软件 I2C）
 
-## Timer Configuration
+## Wiring
 
-| Parameter | Value | Description |
-|-----------|-------|-------------|
-| APB Clock | 72MHz | System clock |
-| PSC | 7200-1 | Prescaler |
-| ARR | 10000-1 | Auto-reload |
-| Interrupt | 10ms | Update event interrupt |
-
-## Hardware
-
-- OLED: PB8 (SCL), PB9 (SDA)
+- W25Q64（SPI1）：PA4(CS)，PA5(SCK)，PA6(MISO)，PA7(MOSI)
+- OLED：PB8(SCL)，PB9(SDA)

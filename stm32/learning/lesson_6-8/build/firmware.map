@@ -2218,10 +2218,6 @@ Discarded input sections
  .text          0x0000000000000000        0x0 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
  .data          0x0000000000000000        0x0 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
  .bss           0x0000000000000000        0x0 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
- .text.TI1_Config
-                0x0000000000000000       0x70 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
- .text.TI2_Config
-                0x0000000000000000       0x74 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
  .text.TIM_DeInit
                 0x0000000000000000      0x1c8 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
  .text.TIM_OC1Init
@@ -2238,8 +2234,6 @@ Discarded input sections
                 0x0000000000000000       0x12 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
  .text.TIM_OCStructInit
                 0x0000000000000000       0x14 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
- .text.TIM_ICStructInit
-                0x0000000000000000       0x10 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
  .text.TIM_BDTRStructInit
                 0x0000000000000000       0x12 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
  .text.TIM_CtrlPWMOutputs
@@ -2340,8 +2334,6 @@ Discarded input sections
                 0x0000000000000000       0x16 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
  .text.TIM_SelectMasterSlaveMode
                 0x0000000000000000       0x16 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
- .text.TIM_SetCounter
-                0x0000000000000000        0x4 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
  .text.TIM_SetAutoreload
                 0x0000000000000000        0x4 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
  .text.TIM_SetCompare1
@@ -2352,18 +2344,8 @@ Discarded input sections
                 0x0000000000000000        0x4 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
  .text.TIM_SetCompare4
                 0x0000000000000000        0x6 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
- .text.TIM_SetIC1Prescaler
-                0x0000000000000000       0x16 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
- .text.TIM_SetIC2Prescaler
-                0x0000000000000000       0x1a CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
  .text.TIM_PWMIConfig
                 0x0000000000000000       0x5a CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
- .text.TIM_SetIC3Prescaler
-                0x0000000000000000       0x16 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
- .text.TIM_SetIC4Prescaler
-                0x0000000000000000       0x1a CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
- .text.TIM_ICInit
-                0x0000000000000000      0x130 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
  .text.TIM_SetClockDivision
                 0x0000000000000000       0x16 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
  .text.TIM_GetCapture1
@@ -2374,8 +2356,6 @@ Discarded input sections
                 0x0000000000000000        0x6 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
  .text.TIM_GetCapture4
                 0x0000000000000000        0x8 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
- .text.TIM_GetCounter
-                0x0000000000000000        0x6 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
  .text.TIM_GetPrescaler
                 0x0000000000000000        0x6 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
  .text.TIM_GetFlagStatus
@@ -3170,7 +3150,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
 .eh_frame       0x000000000800010c        0x0
  .eh_frame      0x000000000800010c        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
 
-.text           0x000000000800010c      0xed0
+.text           0x000000000800010c     0x1194
  *(.text*)
  .text          0x000000000800010c       0x88 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
  .text.SystemInit
@@ -3194,161 +3174,190 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
  .text.RCC_APB1PeriphClockCmd
                 0x00000000080003b4       0x18 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_rcc.c.obj
                 0x00000000080003b4                RCC_APB1PeriphClockCmd
+ .text.TI1_Config
+                0x00000000080003cc       0x70 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
+ .text.TI2_Config
+                0x000000000800043c       0x74 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
  .text.TIM_TimeBaseInit
-                0x00000000080003cc       0x94 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
-                0x00000000080003cc                TIM_TimeBaseInit
- .text.TIM_Cmd  0x0000000008000460       0x18 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
-                0x0000000008000460                TIM_Cmd
+                0x00000000080004b0       0x94 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
+                0x00000000080004b0                TIM_TimeBaseInit
+ .text.TIM_ICStructInit
+                0x0000000008000544       0x10 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
+                0x0000000008000544                TIM_ICStructInit
+ .text.TIM_Cmd  0x0000000008000554       0x18 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
+                0x0000000008000554                TIM_Cmd
  .text.TIM_ITConfig
-                0x0000000008000478       0x12 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
-                0x0000000008000478                TIM_ITConfig
+                0x000000000800056c       0x12 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
+                0x000000000800056c                TIM_ITConfig
  .text.TIM_InternalClockConfig
-                0x000000000800048a        0xe CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
-                0x000000000800048a                TIM_InternalClockConfig
+                0x000000000800057e        0xe CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
+                0x000000000800057e                TIM_InternalClockConfig
  .text.TIM_EncoderInterfaceConfig
-                0x0000000008000498       0x3e CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
-                0x0000000008000498                TIM_EncoderInterfaceConfig
+                0x000000000800058c       0x3e CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
+                0x000000000800058c                TIM_EncoderInterfaceConfig
+ .text.TIM_SetCounter
+                0x00000000080005ca        0x4 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
+                0x00000000080005ca                TIM_SetCounter
+ .text.TIM_SetIC1Prescaler
+                0x00000000080005ce       0x16 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
+                0x00000000080005ce                TIM_SetIC1Prescaler
+ .text.TIM_SetIC2Prescaler
+                0x00000000080005e4       0x1a CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
+                0x00000000080005e4                TIM_SetIC2Prescaler
+ .text.TIM_SetIC3Prescaler
+                0x00000000080005fe       0x16 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
+                0x00000000080005fe                TIM_SetIC3Prescaler
+ .text.TIM_SetIC4Prescaler
+                0x0000000008000614       0x1a CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
+                0x0000000008000614                TIM_SetIC4Prescaler
+ *fill*         0x000000000800062e        0x2 
+ .text.TIM_ICInit
+                0x0000000008000630      0x130 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
+                0x0000000008000630                TIM_ICInit
+ .text.TIM_GetCounter
+                0x0000000008000760        0x6 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
+                0x0000000008000760                TIM_GetCounter
  .text.TIM_ClearFlag
-                0x00000000080004d6        0x8 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
-                0x00000000080004d6                TIM_ClearFlag
+                0x0000000008000766        0x8 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
+                0x0000000008000766                TIM_ClearFlag
  .text.TIM_GetITStatus
-                0x00000000080004de       0x16 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
-                0x00000000080004de                TIM_GetITStatus
+                0x000000000800076e       0x16 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
+                0x000000000800076e                TIM_GetITStatus
  .text.TIM_ClearITPendingBit
-                0x00000000080004f4        0x8 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
-                0x00000000080004f4                TIM_ClearITPendingBit
+                0x0000000008000784        0x8 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
+                0x0000000008000784                TIM_ClearITPendingBit
  .text.startup.main
-                0x00000000080004fc       0x34 CMakeFiles/firmware.elf.dir/src/main_encoder_speed.c.obj
-                0x00000000080004fc                main
+                0x000000000800078c       0x34 CMakeFiles/firmware.elf.dir/src/main_encoder_speed.c.obj
+                0x000000000800078c                main
  .text.TIM2_IRQHandler
-                0x0000000008000530       0x30 CMakeFiles/firmware.elf.dir/src/main_encoder_speed.c.obj
-                0x0000000008000530                TIM2_IRQHandler
+                0x00000000080007c0       0x30 CMakeFiles/firmware.elf.dir/src/main_encoder_speed.c.obj
+                0x00000000080007c0                TIM2_IRQHandler
  .text.OLED_I2C_Init
-                0x0000000008000560       0x50 CMakeFiles/firmware.elf.dir/src/OLED.c.obj
-                0x0000000008000560                OLED_I2C_Init
+                0x00000000080007f0       0x50 CMakeFiles/firmware.elf.dir/src/OLED.c.obj
+                0x00000000080007f0                OLED_I2C_Init
  .text.OLED_I2C_Start
-                0x00000000080005b0       0x3c CMakeFiles/firmware.elf.dir/src/OLED.c.obj
-                0x00000000080005b0                OLED_I2C_Start
+                0x0000000008000840       0x3c CMakeFiles/firmware.elf.dir/src/OLED.c.obj
+                0x0000000008000840                OLED_I2C_Start
  .text.OLED_I2C_Stop
-                0x00000000080005ec       0x30 CMakeFiles/firmware.elf.dir/src/OLED.c.obj
-                0x00000000080005ec                OLED_I2C_Stop
+                0x000000000800087c       0x30 CMakeFiles/firmware.elf.dir/src/OLED.c.obj
+                0x000000000800087c                OLED_I2C_Stop
  .text.OLED_I2C_SendByte
-                0x000000000800061c       0x5c CMakeFiles/firmware.elf.dir/src/OLED.c.obj
-                0x000000000800061c                OLED_I2C_SendByte
+                0x00000000080008ac       0x5c CMakeFiles/firmware.elf.dir/src/OLED.c.obj
+                0x00000000080008ac                OLED_I2C_SendByte
  .text.OLED_WriteCommand
-                0x0000000008000678       0x22 CMakeFiles/firmware.elf.dir/src/OLED.c.obj
-                0x0000000008000678                OLED_WriteCommand
+                0x0000000008000908       0x22 CMakeFiles/firmware.elf.dir/src/OLED.c.obj
+                0x0000000008000908                OLED_WriteCommand
  .text.OLED_WriteData
-                0x000000000800069a       0x22 CMakeFiles/firmware.elf.dir/src/OLED.c.obj
-                0x000000000800069a                OLED_WriteData
+                0x000000000800092a       0x22 CMakeFiles/firmware.elf.dir/src/OLED.c.obj
+                0x000000000800092a                OLED_WriteData
  .text.OLED_SetCursor
-                0x00000000080006bc       0x22 CMakeFiles/firmware.elf.dir/src/OLED.c.obj
-                0x00000000080006bc                OLED_SetCursor
+                0x000000000800094c       0x22 CMakeFiles/firmware.elf.dir/src/OLED.c.obj
+                0x000000000800094c                OLED_SetCursor
  .text.OLED_Clear
-                0x00000000080006de       0x24 CMakeFiles/firmware.elf.dir/src/OLED.c.obj
-                0x00000000080006de                OLED_Clear
- *fill*         0x0000000008000702        0x2 
+                0x000000000800096e       0x24 CMakeFiles/firmware.elf.dir/src/OLED.c.obj
+                0x000000000800096e                OLED_Clear
+ *fill*         0x0000000008000992        0x2 
  .text.OLED_ShowChar
-                0x0000000008000704       0x68 CMakeFiles/firmware.elf.dir/src/OLED.c.obj
-                0x0000000008000704                OLED_ShowChar
+                0x0000000008000994       0x68 CMakeFiles/firmware.elf.dir/src/OLED.c.obj
+                0x0000000008000994                OLED_ShowChar
  .text.OLED_ShowString
-                0x000000000800076c       0x20 CMakeFiles/firmware.elf.dir/src/OLED.c.obj
-                0x000000000800076c                OLED_ShowString
+                0x00000000080009fc       0x20 CMakeFiles/firmware.elf.dir/src/OLED.c.obj
+                0x00000000080009fc                OLED_ShowString
  .text.OLED_ShowSignedNum
-                0x000000000800078c       0x5c CMakeFiles/firmware.elf.dir/src/OLED.c.obj
-                0x000000000800078c                OLED_ShowSignedNum
+                0x0000000008000a1c       0x5c CMakeFiles/firmware.elf.dir/src/OLED.c.obj
+                0x0000000008000a1c                OLED_ShowSignedNum
  .text.OLED_Init
-                0x00000000080007e8       0x98 CMakeFiles/firmware.elf.dir/src/OLED.c.obj
-                0x00000000080007e8                OLED_Init
+                0x0000000008000a78       0x98 CMakeFiles/firmware.elf.dir/src/OLED.c.obj
+                0x0000000008000a78                OLED_Init
  .text.Timer_Init
-                0x0000000008000880       0x82 CMakeFiles/firmware.elf.dir/src/Timer.c.obj
-                0x0000000008000880                Timer_Init
- *fill*         0x0000000008000902        0x2 
+                0x0000000008000b10       0x82 CMakeFiles/firmware.elf.dir/src/Timer.c.obj
+                0x0000000008000b10                Timer_Init
+ *fill*         0x0000000008000b92        0x2 
  .text.Encoder_Init
-                0x0000000008000904       0x70 CMakeFiles/firmware.elf.dir/src/Encoder.c.obj
-                0x0000000008000904                Encoder_Init
+                0x0000000008000b94       0x98 CMakeFiles/firmware.elf.dir/src/Encoder.c.obj
+                0x0000000008000b94                Encoder_Init
  .text.Encoder_Get
-                0x0000000008000974       0x10 CMakeFiles/firmware.elf.dir/src/Encoder.c.obj
-                0x0000000008000974                Encoder_Get
+                0x0000000008000c2c       0x1c CMakeFiles/firmware.elf.dir/src/Encoder.c.obj
+                0x0000000008000c2c                Encoder_Get
  .text.Reset_Handler
-                0x0000000008000984       0x44 CMakeFiles/firmware.elf.dir/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/gcc_ride7/startup_stm32f10x_md.s.obj
-                0x0000000008000984                Reset_Handler
+                0x0000000008000c48       0x44 CMakeFiles/firmware.elf.dir/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/gcc_ride7/startup_stm32f10x_md.s.obj
+                0x0000000008000c48                Reset_Handler
  .text.Default_Handler
-                0x00000000080009c8        0x2 CMakeFiles/firmware.elf.dir/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/gcc_ride7/startup_stm32f10x_md.s.obj
-                0x00000000080009c8                EXTI2_IRQHandler
-                0x00000000080009c8                DebugMon_Handler
-                0x00000000080009c8                TIM1_CC_IRQHandler
-                0x00000000080009c8                HardFault_Handler
-                0x00000000080009c8                SysTick_Handler
-                0x00000000080009c8                PVD_IRQHandler
-                0x00000000080009c8                PendSV_Handler
-                0x00000000080009c8                NMI_Handler
-                0x00000000080009c8                EXTI3_IRQHandler
-                0x00000000080009c8                EXTI0_IRQHandler
-                0x00000000080009c8                I2C2_EV_IRQHandler
-                0x00000000080009c8                UsageFault_Handler
-                0x00000000080009c8                ADC1_2_IRQHandler
-                0x00000000080009c8                SPI1_IRQHandler
-                0x00000000080009c8                TAMPER_IRQHandler
-                0x00000000080009c8                DMA1_Channel4_IRQHandler
-                0x00000000080009c8                USART3_IRQHandler
-                0x00000000080009c8                RTC_IRQHandler
-                0x00000000080009c8                DMA1_Channel7_IRQHandler
-                0x00000000080009c8                CAN1_RX1_IRQHandler
-                0x00000000080009c8                TIM4_IRQHandler
-                0x00000000080009c8                I2C1_EV_IRQHandler
-                0x00000000080009c8                DMA1_Channel6_IRQHandler
-                0x00000000080009c8                TIM3_IRQHandler
-                0x00000000080009c8                RCC_IRQHandler
-                0x00000000080009c8                TIM1_TRG_COM_IRQHandler
-                0x00000000080009c8                DMA1_Channel1_IRQHandler
-                0x00000000080009c8                Default_Handler
-                0x00000000080009c8                EXTI15_10_IRQHandler
-                0x00000000080009c8                EXTI9_5_IRQHandler
-                0x00000000080009c8                SPI2_IRQHandler
-                0x00000000080009c8                MemManage_Handler
-                0x00000000080009c8                SVC_Handler
-                0x00000000080009c8                DMA1_Channel5_IRQHandler
-                0x00000000080009c8                EXTI4_IRQHandler
-                0x00000000080009c8                USB_LP_CAN1_RX0_IRQHandler
-                0x00000000080009c8                USB_HP_CAN1_TX_IRQHandler
-                0x00000000080009c8                DMA1_Channel3_IRQHandler
-                0x00000000080009c8                TIM1_UP_IRQHandler
-                0x00000000080009c8                WWDG_IRQHandler
-                0x00000000080009c8                TIM1_BRK_IRQHandler
-                0x00000000080009c8                EXTI1_IRQHandler
-                0x00000000080009c8                RTCAlarm_IRQHandler
-                0x00000000080009c8                USART2_IRQHandler
-                0x00000000080009c8                I2C2_ER_IRQHandler
-                0x00000000080009c8                DMA1_Channel2_IRQHandler
-                0x00000000080009c8                CAN1_SCE_IRQHandler
-                0x00000000080009c8                FLASH_IRQHandler
-                0x00000000080009c8                BusFault_Handler
-                0x00000000080009c8                USART1_IRQHandler
-                0x00000000080009c8                I2C1_ER_IRQHandler
-                0x00000000080009c8                USBWakeUp_IRQHandler
+                0x0000000008000c8c        0x2 CMakeFiles/firmware.elf.dir/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/gcc_ride7/startup_stm32f10x_md.s.obj
+                0x0000000008000c8c                EXTI2_IRQHandler
+                0x0000000008000c8c                DebugMon_Handler
+                0x0000000008000c8c                TIM1_CC_IRQHandler
+                0x0000000008000c8c                HardFault_Handler
+                0x0000000008000c8c                SysTick_Handler
+                0x0000000008000c8c                PVD_IRQHandler
+                0x0000000008000c8c                PendSV_Handler
+                0x0000000008000c8c                NMI_Handler
+                0x0000000008000c8c                EXTI3_IRQHandler
+                0x0000000008000c8c                EXTI0_IRQHandler
+                0x0000000008000c8c                I2C2_EV_IRQHandler
+                0x0000000008000c8c                UsageFault_Handler
+                0x0000000008000c8c                ADC1_2_IRQHandler
+                0x0000000008000c8c                SPI1_IRQHandler
+                0x0000000008000c8c                TAMPER_IRQHandler
+                0x0000000008000c8c                DMA1_Channel4_IRQHandler
+                0x0000000008000c8c                USART3_IRQHandler
+                0x0000000008000c8c                RTC_IRQHandler
+                0x0000000008000c8c                DMA1_Channel7_IRQHandler
+                0x0000000008000c8c                CAN1_RX1_IRQHandler
+                0x0000000008000c8c                TIM4_IRQHandler
+                0x0000000008000c8c                I2C1_EV_IRQHandler
+                0x0000000008000c8c                DMA1_Channel6_IRQHandler
+                0x0000000008000c8c                TIM3_IRQHandler
+                0x0000000008000c8c                RCC_IRQHandler
+                0x0000000008000c8c                TIM1_TRG_COM_IRQHandler
+                0x0000000008000c8c                DMA1_Channel1_IRQHandler
+                0x0000000008000c8c                Default_Handler
+                0x0000000008000c8c                EXTI15_10_IRQHandler
+                0x0000000008000c8c                EXTI9_5_IRQHandler
+                0x0000000008000c8c                SPI2_IRQHandler
+                0x0000000008000c8c                MemManage_Handler
+                0x0000000008000c8c                SVC_Handler
+                0x0000000008000c8c                DMA1_Channel5_IRQHandler
+                0x0000000008000c8c                EXTI4_IRQHandler
+                0x0000000008000c8c                USB_LP_CAN1_RX0_IRQHandler
+                0x0000000008000c8c                USB_HP_CAN1_TX_IRQHandler
+                0x0000000008000c8c                DMA1_Channel3_IRQHandler
+                0x0000000008000c8c                TIM1_UP_IRQHandler
+                0x0000000008000c8c                WWDG_IRQHandler
+                0x0000000008000c8c                TIM1_BRK_IRQHandler
+                0x0000000008000c8c                EXTI1_IRQHandler
+                0x0000000008000c8c                RTCAlarm_IRQHandler
+                0x0000000008000c8c                USART2_IRQHandler
+                0x0000000008000c8c                I2C2_ER_IRQHandler
+                0x0000000008000c8c                DMA1_Channel2_IRQHandler
+                0x0000000008000c8c                CAN1_SCE_IRQHandler
+                0x0000000008000c8c                FLASH_IRQHandler
+                0x0000000008000c8c                BusFault_Handler
+                0x0000000008000c8c                USART1_IRQHandler
+                0x0000000008000c8c                I2C1_ER_IRQHandler
+                0x0000000008000c8c                USBWakeUp_IRQHandler
  *(.rodata*)
  .rodata.main.str1.1
-                0x00000000080009ca        0x7 CMakeFiles/firmware.elf.dir/src/main_encoder_speed.c.obj
+                0x0000000008000c8e        0x7 CMakeFiles/firmware.elf.dir/src/main_encoder_speed.c.obj
  .rodata.OLED_F8x16
-                0x00000000080009d1      0x5f0 CMakeFiles/firmware.elf.dir/src/OLED.c.obj
-                0x00000000080009d1                OLED_F8x16
+                0x0000000008000c95      0x5f0 CMakeFiles/firmware.elf.dir/src/OLED.c.obj
+                0x0000000008000c95                OLED_F8x16
  *(.glue_7t)
- .glue_7t       0x0000000008000fc1        0x0 linker stubs
+ .glue_7t       0x0000000008001285        0x0 linker stubs
  *(.glue_7)
- .glue_7        0x0000000008000fc1        0x0 linker stubs
+ .glue_7        0x0000000008001285        0x0 linker stubs
  *(.init)
- *fill*         0x0000000008000fc1        0x3 
- .init          0x0000000008000fc4        0x4 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crti.o
-                0x0000000008000fc4                _init
- .init          0x0000000008000fc8        0x8 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
+ *fill*         0x0000000008001285        0x3 
+ .init          0x0000000008001288        0x4 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crti.o
+                0x0000000008001288                _init
+ .init          0x000000000800128c        0x8 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
  *(.fini)
- .fini          0x0000000008000fd0        0x4 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crti.o
-                0x0000000008000fd0                _fini
- .fini          0x0000000008000fd4        0x8 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
+ .fini          0x0000000008001294        0x4 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crti.o
+                0x0000000008001294                _fini
+ .fini          0x0000000008001298        0x8 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
  *(.init)
  *(.fini)
-                0x0000000008000fdc                . = ALIGN (0x4)
+                0x00000000080012a0                . = ALIGN (0x4)
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT_BY_NAME(.ctors.*))
@@ -3357,20 +3366,20 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT_BY_NAME(.dtors.*))
  *(.dtors)
-                0x0000000008000fdc                . = ALIGN (0x4)
-                0x0000000008000fdc                _etext = .
+                0x00000000080012a0                . = ALIGN (0x4)
+                0x00000000080012a0                _etext = .
 
-.vfp11_veneer   0x0000000008000fdc        0x0
- .vfp11_veneer  0x0000000008000fdc        0x0 linker stubs
+.vfp11_veneer   0x00000000080012a0        0x0
+ .vfp11_veneer  0x00000000080012a0        0x0 linker stubs
 
-.v4_bx          0x0000000008000fdc        0x0
- .v4_bx         0x0000000008000fdc        0x0 linker stubs
+.v4_bx          0x00000000080012a0        0x0
+ .v4_bx         0x00000000080012a0        0x0 linker stubs
 
-.iplt           0x0000000008000fdc        0x0
- .iplt          0x0000000008000fdc        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
+.iplt           0x00000000080012a0        0x0
+ .iplt          0x00000000080012a0        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
 
-.rel.dyn        0x0000000008000fdc        0x0
- .rel.iplt      0x0000000008000fdc        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
+.rel.dyn        0x00000000080012a0        0x0
+ .rel.iplt      0x00000000080012a0        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
@@ -3378,27 +3387,27 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
 
-.preinit_array  0x0000000008000fdc        0x0
-                0x0000000008000fdc                PROVIDE (__preinit_array_start = .)
+.preinit_array  0x00000000080012a0        0x0
+                0x00000000080012a0                PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x0000000008000fdc                PROVIDE (__preinit_array_end = .)
+                0x00000000080012a0                PROVIDE (__preinit_array_end = .)
 
-.init_array     0x0000000008000fdc        0x4
-                0x0000000008000fdc                PROVIDE (__init_array_start = .)
+.init_array     0x00000000080012a0        0x4
+                0x00000000080012a0                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x0000000008000fdc        0x4 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
-                0x0000000008000fe0                PROVIDE (__init_array_end = .)
+ .init_array    0x00000000080012a0        0x4 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
+                0x00000000080012a4                PROVIDE (__init_array_end = .)
 
-.fini_array     0x0000000008000fe0        0x4
-                0x0000000008000fe0                PROVIDE (__fini_array_start = .)
+.fini_array     0x00000000080012a4        0x4
+                0x00000000080012a4                PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x0000000008000fe0        0x4 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
-                0x0000000008000fe4                PROVIDE (__fini_array_end = .)
-                0x0000000008000fdc                _sidata = LOADADDR (.data)
+ .fini_array    0x00000000080012a4        0x4 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
+                0x00000000080012a8                PROVIDE (__fini_array_end = .)
+                0x00000000080012a0                _sidata = LOADADDR (.data)
 
-.data           0x0000000020000000        0x0 load address 0x0000000008000fdc
+.data           0x0000000020000000        0x0 load address 0x00000000080012a0
                 0x0000000020000000                _sdata = .
  *(.data*)
                 0x0000000020000000                . = ALIGN (0x4)
@@ -3421,11 +3430,9 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
  .bss           0x0000000020000000       0x1c /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
  .bss.Speed     0x000000002000001c        0x2 CMakeFiles/firmware.elf.dir/src/main_encoder_speed.c.obj
                 0x000000002000001c                Speed
- .bss.Encoder_Count
-                0x000000002000001e        0x2 CMakeFiles/firmware.elf.dir/src/Encoder.c.obj
-                0x000000002000001e                Encoder_Count
  *(COMMON)
                 0x0000000020000020                . = ALIGN (0x4)
+ *fill*         0x000000002000001e        0x2 
                 0x0000000020000020                _ebss = .
                 0x0000000020000020                __bss_end__ = _ebss
 
@@ -3527,7 +3534,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000     0x5e1d
+.debug_info     0x0000000000000000     0x5f15
  *(.debug_info)
  .debug_info    0x0000000000000000      0x487 CMakeFiles/cmsis.dir/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x/system_stm32f10x.c.obj
  .debug_info    0x0000000000000487      0x518 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/misc.c.obj
@@ -3537,10 +3544,10 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
  .debug_info    0x0000000000003f43      0x42b CMakeFiles/firmware.elf.dir/src/main_encoder_speed.c.obj
  .debug_info    0x000000000000436e      0xe49 CMakeFiles/firmware.elf.dir/src/OLED.c.obj
  .debug_info    0x00000000000051b7      0x64b CMakeFiles/firmware.elf.dir/src/Timer.c.obj
- .debug_info    0x0000000000005802      0x5f9 CMakeFiles/firmware.elf.dir/src/Encoder.c.obj
- .debug_info    0x0000000000005dfb       0x22 CMakeFiles/firmware.elf.dir/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/gcc_ride7/startup_stm32f10x_md.s.obj
+ .debug_info    0x0000000000005802      0x6f1 CMakeFiles/firmware.elf.dir/src/Encoder.c.obj
+ .debug_info    0x0000000000005ef3       0x22 CMakeFiles/firmware.elf.dir/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/gcc_ride7/startup_stm32f10x_md.s.obj
 
-.debug_abbrev   0x0000000000000000     0x127c
+.debug_abbrev   0x0000000000000000     0x1269
  *(.debug_abbrev)
  .debug_abbrev  0x0000000000000000      0x1eb CMakeFiles/cmsis.dir/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x/system_stm32f10x.c.obj
  .debug_abbrev  0x00000000000001eb      0x19b CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/misc.c.obj
@@ -3550,10 +3557,10 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
  .debug_abbrev  0x0000000000000b69      0x158 CMakeFiles/firmware.elf.dir/src/main_encoder_speed.c.obj
  .debug_abbrev  0x0000000000000cc1      0x2da CMakeFiles/firmware.elf.dir/src/OLED.c.obj
  .debug_abbrev  0x0000000000000f9b      0x154 CMakeFiles/firmware.elf.dir/src/Timer.c.obj
- .debug_abbrev  0x00000000000010ef      0x17b CMakeFiles/firmware.elf.dir/src/Encoder.c.obj
- .debug_abbrev  0x000000000000126a       0x12 CMakeFiles/firmware.elf.dir/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/gcc_ride7/startup_stm32f10x_md.s.obj
+ .debug_abbrev  0x00000000000010ef      0x168 CMakeFiles/firmware.elf.dir/src/Encoder.c.obj
+ .debug_abbrev  0x0000000000001257       0x12 CMakeFiles/firmware.elf.dir/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/gcc_ride7/startup_stm32f10x_md.s.obj
 
-.debug_line     0x0000000000000000     0x52b6
+.debug_line     0x0000000000000000     0x52e4
  *(.debug_line)
  .debug_line    0x0000000000000000      0x561 CMakeFiles/cmsis.dir/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x/system_stm32f10x.c.obj
  .debug_line    0x0000000000000561      0x50f CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/misc.c.obj
@@ -3563,10 +3570,10 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
  .debug_line    0x0000000000003b26      0x493 CMakeFiles/firmware.elf.dir/src/main_encoder_speed.c.obj
  .debug_line    0x0000000000003fb9      0x935 CMakeFiles/firmware.elf.dir/src/OLED.c.obj
  .debug_line    0x00000000000048ee      0x45d CMakeFiles/firmware.elf.dir/src/Timer.c.obj
- .debug_line    0x0000000000004d4b      0x486 CMakeFiles/firmware.elf.dir/src/Encoder.c.obj
- .debug_line    0x00000000000051d1       0xe5 CMakeFiles/firmware.elf.dir/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/gcc_ride7/startup_stm32f10x_md.s.obj
+ .debug_line    0x0000000000004d4b      0x4b4 CMakeFiles/firmware.elf.dir/src/Encoder.c.obj
+ .debug_line    0x00000000000051ff       0xe5 CMakeFiles/firmware.elf.dir/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/gcc_ride7/startup_stm32f10x_md.s.obj
 
-.debug_frame    0x0000000000000000      0xd8c
+.debug_frame    0x0000000000000000      0xd9c
  *(.debug_frame)
  .debug_frame   0x0000000000000000       0x38 CMakeFiles/cmsis.dir/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x/system_stm32f10x.c.obj
  .debug_frame   0x0000000000000038       0x6c CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/misc.c.obj
@@ -3576,9 +3583,9 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
  .debug_frame   0x0000000000000ae4       0x48 CMakeFiles/firmware.elf.dir/src/main_encoder_speed.c.obj
  .debug_frame   0x0000000000000b2c      0x1f4 CMakeFiles/firmware.elf.dir/src/OLED.c.obj
  .debug_frame   0x0000000000000d20       0x2c CMakeFiles/firmware.elf.dir/src/Timer.c.obj
- .debug_frame   0x0000000000000d4c       0x40 CMakeFiles/firmware.elf.dir/src/Encoder.c.obj
+ .debug_frame   0x0000000000000d4c       0x50 CMakeFiles/firmware.elf.dir/src/Encoder.c.obj
 
-.debug_str      0x0000000000000000    0x4f436
+.debug_str      0x0000000000000000    0x4f43c
  *(.debug_str)
  .debug_str     0x0000000000000000    0x4cd71 CMakeFiles/cmsis.dir/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x/system_stm32f10x.c.obj
                                       0x4ceed (size before relaxing)
@@ -3596,12 +3603,12 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
                                       0x4d0b3 (size before relaxing)
  .debug_str     0x000000000004f019      0x332 CMakeFiles/firmware.elf.dir/src/Timer.c.obj
                                       0x4d2e0 (size before relaxing)
- .debug_str     0x000000000004f34b       0x55 CMakeFiles/firmware.elf.dir/src/Encoder.c.obj
-                                      0x4d0d0 (size before relaxing)
- .debug_str     0x000000000004f3a0       0x96 CMakeFiles/firmware.elf.dir/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/gcc_ride7/startup_stm32f10x_md.s.obj
+ .debug_str     0x000000000004f34b       0x5b CMakeFiles/firmware.elf.dir/src/Encoder.c.obj
+                                      0x4d16a (size before relaxing)
+ .debug_str     0x000000000004f3a6       0x96 CMakeFiles/firmware.elf.dir/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/gcc_ride7/startup_stm32f10x_md.s.obj
                                          0xd0 (size before relaxing)
 
-.debug_loc      0x0000000000000000     0x2f3e
+.debug_loc      0x0000000000000000     0x2f4b
  *(.debug_loc)
  .debug_loc     0x0000000000000000       0xd6 CMakeFiles/cmsis.dir/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x/system_stm32f10x.c.obj
  .debug_loc     0x00000000000000d6      0x1ab CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/misc.c.obj
@@ -3609,7 +3616,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
  .debug_loc     0x000000000000085c      0x71c CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_rcc.c.obj
  .debug_loc     0x0000000000000f78     0x179e CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c.obj
  .debug_loc     0x0000000000002716      0x813 CMakeFiles/firmware.elf.dir/src/OLED.c.obj
- .debug_loc     0x0000000000002f29       0x15 CMakeFiles/firmware.elf.dir/src/Encoder.c.obj
+ .debug_loc     0x0000000000002f29       0x22 CMakeFiles/firmware.elf.dir/src/Encoder.c.obj
 
 .debug_macinfo
  *(.debug_macinfo)

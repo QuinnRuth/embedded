@@ -311,3 +311,91 @@ lsusb | grep -i 0483
 | 蓝牙适配器 | 13d3:3585 | 2-3 | 内置 |
 
 **注意**：换 USB 口后 BUSID 会变，需要重新 `usbipd list` 确认。
+
+---
+
+# USB 转串口（课程 9.1 / USART）在 WSL2 怎么用
+
+> 适用于 CH340/CH341、CP210x、FT232 等常见 USB-UART 小板。核心思路和 ST-Link 一样：用 `usbipd-win` 把 USB 设备转发进 WSL2，然后在 WSL 里使用 `/dev/ttyUSB0` 或 `/dev/ttyACM0`。
+
+## 10.1 Windows：把 USB-UART 转发进 WSL2
+
+1) 插上 USB-UART，小板会在 Windows 里显示为一个串口（COMx）。如果你选择转发到 WSL2，**Windows 的 COM 口会被占用/消失**，属于正常现象。
+
+2) Windows PowerShell：找 BUSID（推荐拔插对比法，或按 VID:PID 过滤）
+
+```powershell
+usbipd list
+```
+
+如果你知道芯片型号，可用常见 VID 快速过滤（不保证 100% 相同，以你 `usbipd list` 输出为准）：
+
+```powershell
+usbipd list | Select-String "1A86|10C4|0403"  # CH34x / CP210x / FTDI
+```
+
+3) Windows PowerShell（管理员）：绑定/共享
+
+```powershell
+usbipd bind --busid 2-4
+```
+
+4) Windows PowerShell：附加到 WSL（把 `2-4` 换成你的实际 BUSID）
+
+```powershell
+usbipd attach --wsl --busid 2-4
+```
+
+可选：需要反复拔插时再用（会一直占用当前 PowerShell）：
+
+```powershell
+usbipd attach --wsl --busid 2-4 --auto-attach
+```
+
+## 10.2 WSL：确认设备节点（ttyUSB / ttyACM）
+
+1) 看内核日志，通常会出现 `ttyUSB0` 或 `ttyACM0`：
+
+```bash
+dmesg | tail -n 80
+```
+
+2) 直接列出串口设备：
+
+```bash
+ls -l /dev/ttyUSB* /dev/ttyACM* 2>/dev/null
+```
+
+如果能看到类似 `/dev/ttyUSB0`，说明设备已可用。
+
+## 10.3 WSL：串口权限与常用打开方式
+
+1) 推荐把当前用户加到 `dialout` 组（之后重开一个终端或重新登录 WSL 生效）：
+
+```bash
+sudo usermod -aG dialout $USER
+```
+
+2) 课程常用 9600（按你的工程实际波特率调整），任选其一打开：
+
+- `screen`（最省事）：
+
+```bash
+screen /dev/ttyUSB0 9600
+```
+
+退出 `screen`：按 `Ctrl+A` 再按 `K`，然后确认。
+
+- `minicom`（更完整）：安装后使用（需要你在 WSL 里自行安装）
+
+```bash
+minicom -D /dev/ttyUSB0 -b 9600
+```
+
+> 如果你同时还需要 ST-Link 烧录/调试：把 ST-Link 和 USB-UART **分别 attach** 进 WSL（它们是两个不同 BUSID），即可同时用 OpenOCD + 串口监视。
+
+## 10.4 断开（Windows）
+
+```powershell
+usbipd detach --busid 2-4
+```

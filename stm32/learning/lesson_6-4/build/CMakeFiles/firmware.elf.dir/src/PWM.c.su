@@ -1,5 +1,3 @@
-/home/muqiao/dev/embedded/stm32/learning/lesson_6-4/src/PWM.c:18:6:PWM_Init	48	static
-/home/muqiao/dev/embedded/stm32/learning/lesson_6-4/src/PWM.c:55:6:PWM_SetCompare1	0	static
-/home/muqiao/dev/embedded/stm32/learning/lesson_6-4/src/PWM.c:64:6:PWM_SetCompare2	0	static
-/home/muqiao/dev/embedded/stm32/learning/lesson_6-4/src/PWM.c:73:6:PWM_SetCompare3	0	static
-/home/muqiao/dev/embedded/stm32/learning/lesson_6-4/src/PWM.c:82:6:PWM_SetPrescaler	0	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_6-4/src/PWM.c:19:6:PWM_Init	48	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_6-4/src/PWM.c:63:6:PWM_SetCompare1	0	static
+/home/muqiao/dev/embedded/stm32/learning/lesson_6-4/src/PWM.c:72:6:PWM_SetCompare2	0	static

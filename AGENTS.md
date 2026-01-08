@@ -21,6 +21,18 @@ embedded/
 
 STM32 的核心模板在 `stm32/learning/vscode_cmake_template/`，其中包含 CMake 通用配置、板卡配置、驱动库与 VS Code 调试设置。
 
+## STM32 默认板卡与外设（从课程代码推断）
+
+- 默认板卡：stm32f103c8t6（BluePill / StdPeriph / CMake 工程体系）
+- 课程里已有可复用的外设与典型接线（从 lesson 代码/文档推断）：
+  - OLED：PB8(SCL) / PB9(SDA)（软件 I2C 4-pin OLED）
+  - USART1：PA9(TX) / PA10(RX)（常用 9600）
+  - MPU6050：PB10/PB11（I2C2 硬件；软件 I2C 也常用这对）
+  - W25Q64：SPI1 常见引脚 PA5/PA6/PA7 + PA4(CS)（课程里是软件 SPI）
+  - 蜂鸣器：PB12（低电平响）
+  - 对射红外计次：PB14（EXTI）
+  - 编码器：课程里有两种实现：PB0/PB1（EXTI 软解码）或 PA6/PA7（TIM3 编码器接口）
+
 ## 目录导航建议
 
 - 想改主逻辑：优先从 `stm32/.../src/` 入手。
@@ -86,6 +98,10 @@ openocd -f interface/stlink-v2.cfg -f target/stm32f1x.cfg \
 - 烧录后无反应：检查 BOOT0 跳线（应接 GND）。
 - 串口无输出：确认波特率与引脚配置匹配。
 
+## 课程实现约定（实践经验）
+
+- OLED 自动恢复：为应对“供电切换/电机舵机干扰导致 OLED 黑屏”，应用层可每约 5 秒尝试重新 `OLED_Init()` 一次，实现无需重启的自恢复（示例：`stm32/learning/lesson_6-4`）。
+- 视频录制建议：最好每隔五秒重启一次（因为会有断电插充电宝的操作）。
 ## 参考文档（可选）
 
 - `README.md`：完整工作流、工具链与目录结构

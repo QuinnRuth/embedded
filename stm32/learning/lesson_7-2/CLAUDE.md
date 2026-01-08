@@ -1,47 +1,38 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
----
-
 ## Project Overview
 
-**Lesson 6-1**: TIM2定时器定时中断 (Timer Interrupt)
+**Lesson 7-2**：AD多通道
 
-## Build Commands
+## Build
 
 ```bash
-# Configure
 cmake -S . -B build \
     -DCMAKE_TOOLCHAIN_FILE=cmake/toolchains/arm-gcc.cmake \
     -DBOARD=stm32f103c8t6 \
+    -DAPP=ad \
     -G Ninja
-
-# Build
 cmake --build build
+```
 
-# Flash
+## Flash
+
+```bash
 openocd -f boards/stm32f103c8t6/openocd.cfg \
     -c "program build/firmware.elf verify reset exit"
 ```
 
 ## Key Files
 
-| File | Description |
-|------|-------------|
-| `src/Timer.c` | Timer initialization and interrupt handler |
-| `src/main_timer.c` | Main application |
-| `include/Timer.h` | Timer function declarations |
+- `src/main_ad.c`
+- `src/AD.c` / `include/AD.h`（ADC1 扫描多通道：PA0~PA3）
+- `src/OLED.c` / `include/OLED.h`（PB8/PB9 软件 I2C）
 
-## Timer Configuration
+## Wiring
 
-| Parameter | Value | Description |
-|-----------|-------|-------------|
-| APB Clock | 72MHz | System clock |
-| PSC | 7200-1 | Prescaler |
-| ARR | 10000-1 | Auto-reload |
-| Interrupt | 10ms | Update event interrupt |
+- AD 输入：PA0/PA1/PA2/PA3
+- OLED：PB8(SCL)，PB9(SDA)
 
-## Hardware
+## Notes
 
-- OLED: PB8 (SCL), PB9 (SDA)
+- 视频录制建议：最好每隔五秒重启一次（因为会有断电插充电宝的操作）。

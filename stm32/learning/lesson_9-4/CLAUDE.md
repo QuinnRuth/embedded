@@ -1,47 +1,43 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
----
-
 ## Project Overview
 
-**Lesson 6-1**: TIM2定时器定时中断 (Timer Interrupt)
+**Lesson 9-4**：串口收发文本数据包
 
-## Build Commands
+## Build
 
 ```bash
-# Configure
 cmake -S . -B build \
     -DCMAKE_TOOLCHAIN_FILE=cmake/toolchains/arm-gcc.cmake \
     -DBOARD=stm32f103c8t6 \
     -G Ninja
-
-# Build
 cmake --build build
+```
 
-# Flash
+## Flash
+
+```bash
 openocd -f boards/stm32f103c8t6/openocd.cfg \
     -c "program build/firmware.elf verify reset exit"
 ```
 
 ## Key Files
 
-| File | Description |
-|------|-------------|
-| `src/Timer.c` | Timer initialization and interrupt handler |
-| `src/main_timer.c` | Main application |
-| `include/Timer.h` | Timer function declarations |
+- `src/main.c`
+- `src/Serial.c` / `include/Serial.h`
+- `src/SerialPacket.c` / `include/SerialPacket.h`
+- `src/OLED.c` / `include/OLED.h`（PB8/PB9 软件 I2C）
 
-## Timer Configuration
+## Wiring
 
-| Parameter | Value | Description |
-|-----------|-------|-------------|
-| APB Clock | 72MHz | System clock |
-| PSC | 7200-1 | Prescaler |
-| ARR | 10000-1 | Auto-reload |
-| Interrupt | 10ms | Update event interrupt |
+- 串口：PA9(TX) / PA10(RX)（默认 9600）
+- OLED：PB8(SCL)，PB9(SDA)
 
-## Hardware
+## 串口助手发送格式
 
-- OLED: PB8 (SCL), PB9 (SDA)
+- 兼容两种输入：
+  - 推荐：直接发送 `LED_ON` 或 `LED_OFF`（可不加换行；加 `\n`/`\r\n` 也可以）
+  - 兼容课件包格式：`@LED_ON\r\n` / `@LED_OFF\r\n`
+- 强力自愈：如果之前发错导致错位，重新发送一次带 `@` 的标准包头（如 `@LED_ON\r\n`）会强制重同步
+- 回传：
+  - `LED_ON_OK` / `LED_OFF_OK` / `ERROR_COMMAND`
