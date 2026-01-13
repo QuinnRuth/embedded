@@ -30,3 +30,6 @@
 1049	1258	1767083284044717908	CMakeFiles/firmware.elf.dir/src/OLED.c.obj	d267e73083785e3b
 1148	1290	1767083284072718460	CMakeFiles/firmware.elf.dir/src/MPU6050.c.obj	c83df2fd8aea7ef0
 1290	1625	1767083284404725008	firmware.elf	1cd86d148756cf1c
+1	171	1767941808572044285	CMakeFiles/firmware.elf.dir/src/MyI2C.c.obj	3ab867b2c82c6fed
+2	171	1767941808568044286	CMakeFiles/firmware.elf.dir/src/MPU6050.c.obj	c83df2fd8aea7ef0
+171	561	1767941808944044242	firmware.elf	1cd86d148756cf1c

@@ -101,6 +101,7 @@ openocd -f interface/stlink-v2.cfg -f target/stm32f1x.cfg \
 ## 课程实现约定（实践经验）
 
 - OLED 自动恢复：为应对“供电切换/电机舵机干扰导致 OLED 黑屏”，应用层可每约 5 秒尝试重新 `OLED_Init()` 一次，实现无需重启的自恢复（示例：`stm32/learning/lesson_6-4`）。
+- WSL2 USB 分工（推荐）：CH340 串口模块留在 Windows（Serial Studio/串口助手直接用 `COMx`），只把 ST-Link 通过 `usbipd attach --wsl` 转发进 WSL2 用于 OpenOCD 烧录；避免把 CH340 attach 进 WSL 导致 Windows 侧 COM 口不可用/混乱。
 - 视频录制建议：最好每隔五秒重启一次（因为会有断电插充电宝的操作）。
 ## 参考文档（可选）
 

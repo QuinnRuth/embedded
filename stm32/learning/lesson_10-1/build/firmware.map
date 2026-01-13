@@ -3602,7 +3602,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
  .debug_abbrev  0x0000000000000cdc      0x116 CMakeFiles/firmware.elf.dir/src/MPU6050.c.obj
  .debug_abbrev  0x0000000000000df2       0x12 CMakeFiles/firmware.elf.dir/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/gcc_ride7/startup_stm32f10x_md.s.obj
 
-.debug_line     0x0000000000000000     0x3813
+.debug_line     0x0000000000000000     0x381d
  *(.debug_line)
  .debug_line    0x0000000000000000      0x564 CMakeFiles/cmsis.dir/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x/system_stm32f10x.c.obj
  .debug_line    0x0000000000000564      0x8f4 CMakeFiles/hal.dir/drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_gpio.c.obj
@@ -3610,9 +3610,9 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
  .debug_line    0x00000000000019a9      0x469 CMakeFiles/firmware.elf.dir/src/main.c.obj
  .debug_line    0x0000000000001e12      0x452 CMakeFiles/firmware.elf.dir/src/Delay.c.obj
  .debug_line    0x0000000000002264      0x93a CMakeFiles/firmware.elf.dir/src/OLED.c.obj
- .debug_line    0x0000000000002b9e      0x629 CMakeFiles/firmware.elf.dir/src/MyI2C.c.obj
- .debug_line    0x00000000000031c7      0x566 CMakeFiles/firmware.elf.dir/src/MPU6050.c.obj
- .debug_line    0x000000000000372d       0xe6 CMakeFiles/firmware.elf.dir/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/gcc_ride7/startup_stm32f10x_md.s.obj
+ .debug_line    0x0000000000002b9e      0x62f CMakeFiles/firmware.elf.dir/src/MyI2C.c.obj
+ .debug_line    0x00000000000031cd      0x56a CMakeFiles/firmware.elf.dir/src/MPU6050.c.obj
+ .debug_line    0x0000000000003737       0xe6 CMakeFiles/firmware.elf.dir/drivers/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/gcc_ride7/startup_stm32f10x_md.s.obj
 
 .debug_frame    0x0000000000000000      0x7ec
  *(.debug_frame)
